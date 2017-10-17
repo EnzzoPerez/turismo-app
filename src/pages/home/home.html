@@ -1,18 +1,29 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>SGTUR APP</ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content>
+        <ion-card>
+            <ion-slides pager>
+                <ion-slide>
+                    <img src="assets/images/card-1.jpg" height="">
+                </ion-slide>
+                <ion-slide>
+                    <img src="assets/images/card-2.jpg">
+                </ion-slide>
+                <ion-slide>
+                    <img src="assets/images/card-3.jpg">
+                </ion-slide>
+            </ion-slides>
+        </ion-card>
+        <ion-list no-lines>
+            <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+                {{ item.nombre|uppercase }}
+            </button> 
+        </ion-list>
 </ion-content>
