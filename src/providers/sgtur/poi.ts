@@ -12,12 +12,12 @@ export class SgturPOIProvider extends SgturProvider {
         super(http);
     }
 
-    getPOICategorias() {
+    getPOICategories() {
         return this.http.get(this.api_url + 'poi-categoria').map(response => response.json());
     }
 
-    getPOI(categoria: string) {
-        return this.http.get(this.api_url + 'poi-categoria').map(response => response.json());
+    getPOIByCategory(categoria: string) {
+        return this.http.get(this.api_url + 'poi/?categoria__nombre__iexact=' + categoria).map(response => response.json());
     }
 
 }

@@ -1,12 +1,16 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>POIs</ion-title>
+        <ion-title>{{ categoryName }}</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-    {{ item }}
+    <ion-list>
+        <button ion-item *ngFor="let poi of POIList" (click)="goToPOIDetail(poi)">
+            {{ poi.titulo }}
+        </button> 
+    </ion-list>
 </ion-content>

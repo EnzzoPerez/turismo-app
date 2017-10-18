@@ -27,6 +27,8 @@ import { BusquedaPageModule } from '../pages/busqueda/busqueda.module';
 import { BusquedaPage } from '../pages/busqueda/busqueda';
 import { SobreCatamarcaPageModule } from '../pages/sobre-catamarca/sobre-catamarca.module';
 import { SobreCatamarcaPage } from '../pages/sobre-catamarca/sobre-catamarca';
+import { PoiDetailPageModule } from './../pages/poi-detail/poi-detail.module';
+import { PoiDetailPage } from './../pages/poi-detail/poi-detail';
 
 
 
@@ -42,6 +44,7 @@ import { SobreCatamarcaPage } from '../pages/sobre-catamarca/sobre-catamarca';
         ComponentsModule,
         AboutPageModule,
         PoiListPageModule,
+        PoiDetailPageModule,
         CategoriesPageModule,
         MapaPageModule,
         BusquedaPageModule,
@@ -52,6 +55,7 @@ import { SobreCatamarcaPage } from '../pages/sobre-catamarca/sobre-catamarca';
         MyApp,
         HomePage,
         PoiListPage,
+        PoiDetailPage,
         CategoriesPage,
         AboutPage,
         MapaPage,

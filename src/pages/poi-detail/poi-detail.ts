@@ -1,25 +1,22 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the PoiDetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
-  selector: 'page-poi-detail',
-  templateUrl: 'poi-detail.html',
+    selector: 'page-poi-detail',
+    templateUrl: 'poi-detail.html',
 })
 export class PoiDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    POI: any;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PoiDetailPage');
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+        this.POI = this.navParams.get('poi');
+    }
+
+    ionViewDidLoad() {
+        //
+    }
 
 }

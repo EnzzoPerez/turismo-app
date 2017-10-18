@@ -19,7 +19,7 @@ export class CategoriesPage {
     }
 
     ionViewDidLoad() {
-        this.sgturPOIProvider.getPOICategorias().subscribe(
+        this.sgturPOIProvider.getPOICategories().subscribe(
             data => {
                 this.categories = data['results']
                 console.log(this.categories);
