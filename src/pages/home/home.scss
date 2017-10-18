@@ -1,3 +1,29 @@
 page-home {
+	.list .item {
+		text-align: center;
+		padding: 5px;
+		margin-bottom: 4px;
+		background-color: color($colors, primary, base) !important;
+		font-weight: bold;
+	}
+	
+	.swiper-container{
+		background: #333;
+	}
+
+	.card-md {
+		margin: 0 auto;
+		margin-bottom: 10px;
+		width: 100% !important;
+	}
+
+	.swiper-slide {
+		width: 100% !important;
+	}
+
+	.ion-slide img {
+		width: 800px !important;
+		height: 600px !important;
+	}
 
 }

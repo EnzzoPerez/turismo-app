@@ -9,9 +9,9 @@
 
 <ion-content>
         <ion-card>
-            <ion-slides pager>
+            <ion-slides>
                 <ion-slide>
-                    <img src="assets/images/card-1.jpg" height="">
+                    <img src="assets/images/card-1.jpg">
                 </ion-slide>
                 <ion-slide>
                     <img src="assets/images/card-2.jpg">
@@ -21,7 +21,7 @@
                 </ion-slide>
             </ion-slides>
         </ion-card>
-        <ion-list>
+        <ion-list no-lines>
             <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
                 {{ item.nombre|uppercase }}
             </button> 
