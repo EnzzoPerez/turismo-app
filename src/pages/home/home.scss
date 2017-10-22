@@ -1,20 +1,28 @@
 page-home {
+
 	.list .item {
-		text-align: center;
-		padding: 5px;
-		margin-bottom: 4px;
-		background-color: color($colors, primary, base) !important;
+		/*text-align: center;
+		padding: 15px;
+		margin-bottom: -4px;
+		//background-color: color($colors, primary, base) !important;
 		font-weight: bold;
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		.label {
+			//text-shadow: 1px 0px #a0d449;
+			font-size: 20px;
+			color: #333;
+		}*/
 	}
-	
+
 	.swiper-container{
-		background: #333;
+		//background: color($colors, primary, base);
 	}
 
 	.card-md {
-		margin: 0 auto;
+		/*margin: 0 auto;
 		margin-bottom: 10px;
-		width: 100% !important;
+		width: 100% !important;*/
 	}
 
 	.swiper-slide {
@@ -25,5 +33,75 @@ page-home {
 		width: 800px !important;
 		height: 600px !important;
 	}
+
+	.ion-slide-text {
+		position: absolute;
+		top: 220px;
+		left: 10px;
+		padding: 5px;
+		color: #FFF;
+		background: rgba(51, 51, 51, 0.41);
+	}
+
+	ion-card {
+        margin: 0 !important;
+        width: 100% !important;
+        margin-bottom: 2px !important;
+	}
+
+	.card-md{
+		background: transparent;
+	}
+
+    .card-background-page {
+
+        ion-card {
+            position: relative;
+            text-align: center;
+            border-radius: 1px;
+        }
+
+		
+		ion-card .card-color {
+			height: 150px;
+			background: red;
+		}
+
+		ion-card img {
+			height: 40px;
+			width: 40px;
+			position: relative;
+			display: inline-block;
+			margin-bottom: -6px;
+		}
+		
+        .card-title {
+            position: absolute;
+            top: 20%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+			color: #fff;
+			margin-left: -10px;
+		}
+		
+		.card-title span {
+			display: inline-block;
+		}
+
+        .card-subtitle {
+            font-size: 1.1em;
+            position: absolute;
+            top: 48%;
+            width: 100%;
+            color: #fff;
+        }
+
+        .boton{
+            top: 80%;
+            position: absolute;
+            width: 100%;
+        }
+    }
 
 }

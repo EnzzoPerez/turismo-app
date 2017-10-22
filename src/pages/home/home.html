@@ -9,21 +9,31 @@
 
 <ion-content>
         <ion-card>
-            <ion-slides>
+            <ion-slides autoplay="3000" loop="true" speed="500" (ionSlideDidChange)="slideChanged()">
                 <ion-slide>
                     <img src="assets/images/card-1.jpg">
+                    <div class="ion-slide-text">Fiesta internacional del poncho</div>
                 </ion-slide>
                 <ion-slide>
                     <img src="assets/images/card-2.jpg">
+                    <div class="ion-slide-text">Puna de Catamarca</div>
                 </ion-slide>
                 <ion-slide>
                     <img src="assets/images/card-3.jpg">
+                    <div class="ion-slide-text">Conoce la ruta del vino</div>
                 </ion-slide>
             </ion-slides>
         </ion-card>
-        <ion-list no-lines>
-            <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-                {{ item.nombre|uppercase }}
-            </button> 
-        </ion-list>
+        <div class="card-background-page">
+            <ion-card *ngFor="let item of items" (click)="itemSelected(item)" [id]="item.nombre">
+                <div class="card-color" [style.background]='item.color'></div>
+                <div class="card-title">
+                    <img [src]="item.icon">
+                    <span>
+                        {{ item.titulo|uppercase }}
+                    </span>
+                </div>
+                <div class="card-subtitle">{{ item.subtitulo}}</div>
+            </ion-card>
+        </div>
 </ion-content>

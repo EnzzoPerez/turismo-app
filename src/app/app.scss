@@ -14,10 +14,14 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+* {
+	font-family: 'Oswald', sans-serif;
+}
+
 .toolbar-background-md {
-    background-color: color($colors, primary, base);
+    background-color: color($colors, light, base);
 }
 
 .content{
-	background-color: #333 !important;
+	background-color: color($colors, light, base) !important;
 }
