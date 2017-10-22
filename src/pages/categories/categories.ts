@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import * as _ from "lodash";
+
 import { SgturPOIProvider } from '../../providers/sgtur/poi';
 import { PoiListPage } from '../poi-list/poi-list';
 
