@@ -29,7 +29,8 @@ import { SobreCatamarcaPageModule } from '../pages/sobre-catamarca/sobre-catamar
 import { SobreCatamarcaPage } from '../pages/sobre-catamarca/sobre-catamarca';
 import { PoiDetailPageModule } from './../pages/poi-detail/poi-detail.module';
 import { PoiDetailPage } from './../pages/poi-detail/poi-detail';
-
+import { PoiDetailModalDescPageModule } from './../pages/poi-detail-modal-desc/poi-detail-modal-desc.module';
+import { PoiDetailModalDescPage } from '../pages/poi-detail-modal-desc/poi-detail-modal-desc';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { PoiDetailPage } from './../pages/poi-detail/poi-detail';
         CategoriesPageModule,
         MapaPageModule,
         BusquedaPageModule,
-        SobreCatamarcaPageModule
+        SobreCatamarcaPageModule,
+        PoiDetailModalDescPageModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -60,7 +62,8 @@ import { PoiDetailPage } from './../pages/poi-detail/poi-detail';
         AboutPage,
         MapaPage,
         BusquedaPage,
-        SobreCatamarcaPage
+        SobreCatamarcaPage,
+        PoiDetailModalDescPage
     ],
     providers: [
         StatusBar,

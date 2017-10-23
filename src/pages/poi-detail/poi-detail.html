@@ -30,17 +30,24 @@ Ionic pages and navigation.
         <img src="assets/images/no-imagen.gif" alt="">
 
         <ion-card-content>
+
             <ion-card-title align="center">
                 {{ POI.titulo }}
             </ion-card-title>
+
             <ion-grid>
 
-                <ion-row>
-                    <div ion-col align="center" [innerHTML]="POI.descripcion"></div>
+                <ion-row id="centrado" *ngIf="POI.descripcion">
+                    <ion-col>
+                        <button col-12 ion-button color="blue" (click)="openModal('detalle', POI)" icon-right>
+                            Ver detalle
+                            <ion-icon name='md-arrow-round-forward' item-start></ion-icon>
+                        </button>
+                    </ion-col>
                 </ion-row>
-                <hr>
 
             </ion-grid>
+
         </ion-card-content>
     </ion-card>
 </ion-content>
