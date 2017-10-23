@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Device } from '@ionic-native/device';
+import { Diagnostic } from '@ionic-native/diagnostic';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { ComponentsModule } from '../components/components.module';
 import { MyApp } from './app.component';
@@ -42,7 +45,6 @@ import { PoiDetailModalDescPage } from '../pages/poi-detail-modal-desc/poi-detai
         BrowserModule,
         IonicModule.forRoot(MyApp),
         HttpModule,
-        ComponentsModule,
         AboutPageModule,
         PoiListPageModule,
         PoiDetailPageModule,
@@ -68,6 +70,9 @@ import { PoiDetailModalDescPage } from '../pages/poi-detail-modal-desc/poi-detai
     providers: [
         StatusBar,
         SplashScreen,
+        Geolocation,
+        Diagnostic,
+        Device,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
         CoreProvider,
         AmauttaProvider,

@@ -1,15 +1,7 @@
-<!--
-Generated template for the PoiDetailPage page.
-
-See http://ionicframework.com/docs/components/#navigation for more info on
-Ionic pages and navigation.
--->
 <ion-header>
-
     <ion-navbar>
-        <ion-title>{{ POI.titulo }}</ion-title>
+        <ion-title>{{ POI.categoria.nombre}}</ion-title>
     </ion-navbar>
-
 </ion-header>
 
 
@@ -37,10 +29,62 @@ Ionic pages and navigation.
 
             <ion-grid>
 
+                <ion-row>
+                    <div ion-col align="center">
+                        <span *ngIf="POI.domicilio">
+                            {{ POI.domicilio }} - 
+                        </span>
+                        <span *ngIf="POI.localidad && POI.localidad.nombre">
+                            {{ POI.localidad.nombre }} - 
+                        </span>
+                        <span *ngIf="POI.localidad && POI.localidad.departamento">
+                            {{ POI.localidad.departamento }} 
+                        </span>
+                    </div>
+                </ion-row>
+                <hr>
+
+                <div *ngIf="POI.telefonos">
+                    <ion-row *ngFor="let t of POI.telefonos">
+                        <div ion-col col-sm-6 *ngIf="t.tipo != 'Celular'">
+                            <button ion-button small class="llamar-btn" (click)="openTel(t.numero)">
+                                <ion-icon name="call"></ion-icon>
+                            </button>
+                            {{ t.numero }}
+                        </div>
+                        <div ion-col col-sm-6 *ngIf="t.tipo == 'Celular'">
+                            <button ion-button small class="llamar-btn" (click)="openTel(t.numero)">
+                                <ion-icon name="call"></ion-icon>
+                            </button>
+                            {{ t.numero }}
+                        </div>
+                    </ion-row>
+                </div>
+
+                <ion-row *ngIf="POI.forma_pago.lenght > 0">
+                    <ion-col>
+                        <ion-icon name="cash"></ion-icon> Formas de pago: {{ POI.formas_pago }}
+                    </ion-col>
+                </ion-row>
+                <ion-row *ngIf="POI.tarjetas.lenght > 0">
+                    <ion-col>
+                        <ion-icon name="card"></ion-icon> Tarjetas: {{ POI.tarjetas }}
+                    </ion-col>
+                </ion-row>
+
                 <ion-row id="centrado" *ngIf="POI.descripcion">
                     <ion-col>
-                        <button col-12 ion-button color="blue" (click)="openModal('detalle', POI)" icon-right>
+                        <button col-12 ion-button color="barra" (click)="openModal('detalle', POI)" icon-right>
                             Ver detalle
+                            <ion-icon name='md-arrow-round-forward' item-start></ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row id="centrado">
+                    <ion-col>
+                        <button col-12 ion-button color="barra" icon-right>
+                            Servicios cerca
                             <ion-icon name='md-arrow-round-forward' item-start></ion-icon>
                         </button>
                     </ion-col>

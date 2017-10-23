@@ -31,12 +31,14 @@ export class HomePage {
     }
 
     changeBackground(img: string): any {
-        console.log(img);
         return { 'background': 'url('+ img +') center no-repeat'};
     }
 
     slideChanged() {
-        console.log('changed slide');
+        this.slides.startAutoplay();
+    }
+
+    ionViewDidLoad() {
         this.slides.startAutoplay();
     }
 

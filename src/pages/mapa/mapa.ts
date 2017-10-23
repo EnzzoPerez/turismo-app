@@ -1,25 +1,30 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
-/**
- * Generated class for the MapaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { GoogleMapComponent } from './../../components/google-map/google-map';
+
 
 @IonicPage()
 @Component({
-  selector: 'page-mapa',
-  templateUrl: 'mapa.html',
+    selector: 'page-mapa',
+    templateUrl: 'mapa.html',
 })
 export class MapaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    @ViewChild(GoogleMapComponent) public map: GoogleMapComponent;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MapaPage');
-  }
+    constructor(
+        public navCtrl: NavController, 
+        public navParams: NavParams,
+        private platform: Platform,) {
+    }
+
+    ionViewDidLoad() {
+        this.platform.ready().then(() => {
+            this.map.resizeMap();
+            //this.map.myLocationSet();
+            this.map.myLocationWatch();
+        });
+    }
 
 }
