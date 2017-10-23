@@ -38,8 +38,11 @@ export class HomePage {
         this.slides.startAutoplay();
     }
 
-    ionViewDidLoad() {
-        this.slides.startAutoplay();
+    ionViewDidEnter() {
+        if(this.slides) {
+            console.log('autoplay');
+            this.slides.startAutoplay();
+        }
     }
 
 }

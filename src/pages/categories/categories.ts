@@ -23,7 +23,8 @@ export class CategoriesPage {
     ionViewDidLoad() {
         this.sgturPOIProvider.getPOICategories().subscribe(
             data => {
-                this.categories = data['results']
+                // Filtramos para mostrar solo las categorías que contengan POIs
+                this.categories = _.filter(data['results'], function(r){return r.poi_count > 0})
                 console.log(this.categories);
             },
             error => {
