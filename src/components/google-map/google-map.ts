@@ -239,6 +239,14 @@ export class GoogleMapComponent {
         });
     }
 
+    getMyLocation() {
+        if(this.myPositionMarker){
+            return this.myPositionMarker.getLatLng();
+        }else{
+            return false
+        }
+    }
+    
     setStyles(layer: string, params: any){
         let labelText: string;
         let icon = '';
@@ -365,7 +373,7 @@ export class GoogleMapComponent {
                 }));
             } 
         });
-        // Susbribimos al metodo que va a actuar cuandio se encienda o apague el GPS.
+        // Susbribimos al metodo que va a actuar cuando se encienda o apague el GPS.
         this.diagnostic.registerLocationStateChangeHandler(state => {
             if((this.device.platform === "Android" && state !== this.diagnostic.locationMode.LOCATION_OFF)
                 || (this.device.platform === "iOS") && ( state === this.diagnostic.permissionStatus.GRANTED

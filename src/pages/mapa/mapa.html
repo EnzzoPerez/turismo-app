@@ -8,5 +8,35 @@
 
 
 <ion-content>
+    
     <google-map></google-map>
+
+    <img src="assets/images/lupa.png" id="search-float-button" alt="boton flotante de busqueda" width="48" height="48">
+    <img src="assets/images/ubi.png" id="ubi-float-button" alt="boton flotante para centra el mapa en mi ubicación" width="48" height="48" (click)="centerPosition()">
+    
+    <ion-card id="button-wrapper">
+        <ion-label id="label"><b>Seleccione la distancia donde desea buscar</b></ion-label>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12 style="text-align:center;">
+                    <ion-badge color="barra">{{ radio }} {{ radio==1?'metro':'metros' }}</ion-badge>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-12>
+                    <ion-range min="1" max="3000" step="1" snaps="true" color="barra" [(ngModel)]="radio" (ionChange)="radioChange($event)">
+                        <ion-label class="rangeLabel" range-left>1 m</ion-label>
+                        <ion-label class="rangeLabel" range-right>3000 m</ion-label>
+                    </ion-range>
+                </ion-col>
+            </ion-row>
+            <ion-row align-items-end>
+                <ion-col col-12 style="text-align:center;">
+                    <button ion-button small color="dangerDark" id="close-button">Cerrar</button>
+                    <button ion-button small color="barra" (click)="radioSearch()">Buscar</button>
+                </ion-col>
+            </ion-row>  
+        </ion-grid>
+    </ion-card>
+
 </ion-content>

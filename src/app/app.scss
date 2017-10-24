@@ -25,3 +25,29 @@
 .content{
 	background-color: color($colors, light, base) !important;
 }
+
+ion-content{
+	background-position: center;
+}
+
+ion-icon{
+	margin-right: 10px;
+	font-size: 1.7em;
+}
+
+.menu-inner .list-md .label-md{
+	color: #f05e2a;
+}
+
+.content-md{
+	background-color: map-get($colors, barra)
+}
+
+.item-md{
+	background-color: inherit;
+}
+
+ion-item span{
+	position: fixed;
+    margin-top: 5px;
+}

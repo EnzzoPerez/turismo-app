@@ -9,9 +9,10 @@
     <ion-content>
         <img src="assets/images/catamarca1.jpg">
         <ion-list>
-            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-                {{p.title}}
-            </button>
+            <ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
+                <ion-icon name="{{p.icon}}"></ion-icon>
+                <span>{{p.title}}</span>
+            </ion-item>
         </ion-list>
     </ion-content>
 
