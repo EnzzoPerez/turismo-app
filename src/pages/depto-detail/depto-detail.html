@@ -1,0 +1,60 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>{{deptoDetail.nombre}}</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	
+	<ion-card>
+		<ion-card-header>
+			Descripción
+		</ion-card-header>
+		<ion-card-content *ngIf="deptoDetail.descripcion">
+			<span [innerHTML] = "deptoDetail.descripcion">
+			</span>				
+		</ion-card-content>
+		<ion-card-content *ngIf="!deptoDetail.descripcion">
+			No se cargaron datos.				
+		</ion-card-content>
+	</ion-card>
+	
+	<ion-card>
+		<ion-card-header>
+			Etimología
+		</ion-card-header>
+		<ion-card-content *ngIf="deptoDetail.etimologia">
+			{{deptoDetail.etimologia}}		
+		</ion-card-content>
+		<ion-card-content *ngIf="!deptoDetail.etimologia">
+			No se cargaron datos.				
+		</ion-card-content>
+	</ion-card>
+	
+	<ion-card>
+		<ion-card-header>
+			Población
+		</ion-card-header>
+		<ion-card-content >
+			{{deptoDetail.poblacion}}			
+		</ion-card-content>
+		<ion-card-content *ngIf="!deptoDetail.poblacion">
+			No se cargaron datos.				
+		</ion-card-content>
+	</ion-card>
+	
+	<ion-card>
+		<ion-card-header>
+			Altitud
+		</ion-card-header>
+		<ion-card-content >
+			{{deptoDetail.altitud}}			
+		</ion-card-content>
+		<ion-card-content *ngIf="!deptoDetail.etimologia">
+			No se cargaron datos.				
+		</ion-card-content>
+	</ion-card>
+</ion-content>

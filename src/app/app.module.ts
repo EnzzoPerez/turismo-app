@@ -21,6 +21,8 @@ import { AmauttaComerciosProvider } from '../providers/amautta/comercios';
 import { SgturHospedajesProvider } from '../providers/sgtur/hospedaje';
 import { SgturPOIProvider } from '../providers/sgtur/poi';
 import { CategoriesPageModule } from '../pages/categories/categories.module';
+import { DeptoDetailPage } from '../pages/depto-detail/depto-detail';
+import { DeptoDetailPageModule } from '../pages/depto-detail/depto-detail.module';
 import { CategoriesPage } from '../pages/categories/categories';
 import { AboutPageModule } from '../pages/about/about.module';
 import { AboutPage } from '../pages/about/about';
@@ -34,6 +36,7 @@ import { PoiDetailPageModule } from './../pages/poi-detail/poi-detail.module';
 import { PoiDetailPage } from './../pages/poi-detail/poi-detail';
 import { PoiDetailModalDescPageModule } from './../pages/poi-detail-modal-desc/poi-detail-modal-desc.module';
 import { PoiDetailModalDescPage } from '../pages/poi-detail-modal-desc/poi-detail-modal-desc';
+import { InfoCatProvider } from '../providers/sgtur/infoCat';
 
 
 @NgModule({
@@ -52,7 +55,8 @@ import { PoiDetailModalDescPage } from '../pages/poi-detail-modal-desc/poi-detai
         MapaPageModule,
         BusquedaPageModule,
         SobreCatamarcaPageModule,
-        PoiDetailModalDescPageModule
+        PoiDetailModalDescPageModule,
+        DeptoDetailPageModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -65,7 +69,8 @@ import { PoiDetailModalDescPage } from '../pages/poi-detail-modal-desc/poi-detai
         MapaPage,
         BusquedaPage,
         SobreCatamarcaPage,
-        PoiDetailModalDescPage
+        PoiDetailModalDescPage,
+        DeptoDetailPage
     ],
     providers: [
         StatusBar,
@@ -79,7 +84,8 @@ import { PoiDetailModalDescPage } from '../pages/poi-detail-modal-desc/poi-detai
         SgturProvider,
         AmauttaComerciosProvider,
         SgturHospedajesProvider,
-        SgturPOIProvider
+        SgturPOIProvider,
+        InfoCatProvider
     ]
 })
 export class AppModule {}
