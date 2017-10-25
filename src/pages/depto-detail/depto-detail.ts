@@ -17,7 +17,6 @@ export class DeptoDetailPage {
 		private infoCat: InfoCatProvider
 		) {
 			this.deptoDetail = this.navParams.get('depto');
-			console.log("uniq", this.deptoDetail);
 	}
 
 	ionViewDidLoad(){
