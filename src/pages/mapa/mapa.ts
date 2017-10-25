@@ -3,8 +3,10 @@ import { IonicPage, NavController, NavParams, Platform, MenuController } from 'i
 
 import { GoogleMapComponent } from './../../components/google-map/google-map';
 import { CoreProvider } from './../../providers/core/core';
+import { SgturPOIProvider } from './../../providers/sgtur/poi'
 
 import * as $ from 'jquery'
+
 
 @IonicPage()
 @Component({
@@ -22,10 +24,12 @@ export class MapaPage {
         public navParams: NavParams,
         private platform: Platform,
         public menuCtrl: MenuController,
-        private coreService: CoreProvider
+        private coreService: CoreProvider,
+        private poiService: SgturPOIProvider
     ) {
         $(document).on("click", '#search-float-button', () => {
 			$('#button-wrapper').show();
+			this.radioChange();
 		});
 
 		$(document).on("click", '#close-button', () => {
@@ -36,8 +40,8 @@ export class MapaPage {
     ionViewDidLoad() {
         this.platform.ready().then(() => {
             this.map.resizeMap();
-            //this.map.myLocationSet();
-            this.map.myLocationWatch();
+            //this.map.myLocationWatch();
+            this.map.createPositionMarker(false);
         });
     }
 
@@ -60,30 +64,29 @@ export class MapaPage {
     radioChange() {
 		let latLng = this.map.getMyLocation();
 		if (latLng){
-			//this.map.removeCircle('myPosition');
-			//this.map.createCircle(latLng.lat, latLng.lng, this.radio, 'myPosition');
+			this.map.removeCircle('myPosition');
+			this.map.createCircle(latLng, this.radio * 1000, 'myPosition');
 		}
 	}
 
 	radioSearch() {
-	    /*var icon1 = Leaflet.icon({
-            iconUrl: 'assets/images/marker.png',
-            iconSize: [40,40]
-		});*/
-		
-		/*let latLng = this.map.getMyLocation();
+	    var iconPOI = 'assets/images/marker.png';
+		let latLng = this.map.getMyLocation();
+
 		if (latLng){
-			this.globalService.presentLoading('Buscando hospedajes..');
-			this.hospedajeService.getRadioHospedajes(latLng.lng + ',' + latLng.lat, this.radio).subscribe (
+			this.coreService.presentLoading('Buscando..');
+			this.poiService.getRadioPOI(latLng.lng() + ',' + latLng.lat(), this.radio * 1000).subscribe (
 				data => {
-					this.map.clearLayer('hospedajes');
-					this.map.addGeoJson('hospedajes', data);
-					this.map.setIcons('hospedajes', icon1);
-					this.map.setLabel('hospedajes', 'hospedajedata', 'hospedaje', 'nombre');
-					this.globalService.dismissLoading();
+					this.map.hiddenLayer('poi');
+					this.map.createLayer('poi');
+					this.map.addGeoJson('poi', data['results']);
+					this.map.setStyles('poi', {icon:iconPOI, prop:['titulo']});
+					this.map.setBounds('poi');
+        			this.map.setMarkerOnClick('poi');
+					this.coreService.dismissLoading();
 				},
 				error => {
-					this.globalService.dismissLoading();
+					this.coreService.dismissLoading();
 				}
 			);
 		}else{
@@ -104,8 +107,8 @@ export class MapaPage {
 					this.globalService.dismissLoading();
 				}
 			);
-			this.coreService.showAlert('Error', 'No pudimos encontrar su ubicación');
-		}*/
+			this.coreService.showAlert('Error', 'No pudimos encontrar su ubicación');*/
+		}
   	}
 
 }

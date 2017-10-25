@@ -28,12 +28,12 @@
             <ion-card *ngFor="let item of items" (click)="itemSelected(item)" [id]="item.nombre">
                 <div class="card-color" [style.background]='item.color'></div>
                 <div class="card-title">
-                    <img [src]="item.icon">
+                    <!--img [src]="item.icon"-->
                     <span>
                         {{ item.titulo|uppercase }}
                     </span>
                 </div>
-                <div class="card-subtitle">{{ item.subtitulo}}</div>
+                <div class="card-subtitle">{{ item.subtitulo }}</div>
             </ion-card>
         </div>
 </ion-content>

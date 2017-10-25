@@ -20,4 +20,9 @@ export class SgturPOIProvider extends SgturProvider {
         return this.http.get(this.api_url + 'poi/?categoria__nombre__iexact=' + categoria).map(response => response.json());
     }
 
+    getRadioPOI(point: string, radio: number = 1){
+		return this.http.get(this.api_url + 'poi/?geojson=true&dist='+ radio +'&point='+ point +'&format=json')
+			.map(res => res.json());
+	}
+
 }

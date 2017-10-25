@@ -6,7 +6,7 @@
 
 
 <ion-content>
-    <ion-list no-lines>
+    <ion-list no-lines id="categories-list">
         <button ion-item *ngFor="let category of categories" (click)="categorySelected(category)">
             {{ category.nombre }}
             <ion-badge item-end color="blue">{{ category.poi_count }}</ion-badge>

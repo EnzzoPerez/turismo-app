@@ -9,7 +9,6 @@ import { Device } from '@ionic-native/device';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { Geolocation } from '@ionic-native/geolocation';
 
-import { ComponentsModule } from '../components/components.module';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PoiListPage } from '../pages/poi-list/poi-list';

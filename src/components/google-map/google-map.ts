@@ -1,11 +1,10 @@
 import { Component, ViewChild, ElementRef, Input } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/takeUntil';
-import { NavController, IonicPage, Platform, NavParams, AlertController } from 'ionic-angular';
+import { NavController, Platform, NavParams, AlertController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { Device } from '@ionic-native/device';
 import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/operator/takeUntil';
 
 import { CoreProvider } from './../../providers/core/core';
 
@@ -27,10 +26,9 @@ export class GoogleMapComponent {
     @Input('height_map') public height_map;
 
     // INITIAL VARS
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
-
     map: any;
     layers: any[] = [];
+    circles: any[] = [];
     polyline: any;
     myPositionMarker: any;
     originRouteLatLng: any;
@@ -97,18 +95,22 @@ export class GoogleMapComponent {
 
     setBounds(layer: any, route:boolean=false): void {
         let bounds = new google.maps.LatLngBounds();
+        let total: number = 0;
         if(route){
             bounds.extend(this.originRouteLatLng);
             bounds.extend(this.destRouteLatLng);
-        }else{
+        }else{ 
             this.layers[layer].forEach(feature => {
                 feature.getGeometry().forEachLatLng(latlng => {
+                    console.log(latlng);
                     bounds.extend(latlng);
                 })
+                total++;
             });
         }
-
-        this.map.fitBounds(bounds);
+        if (total > 0){
+            this.map.fitBounds(bounds);
+        }
     }
 
     prepareRoute(layer: string, latLng?: any){
@@ -181,7 +183,7 @@ export class GoogleMapComponent {
                 latLong = JSON.stringify([latlng.lat(), latlng.lng()]);
             });
             let div = 
-            "<div class='reclamo-popup' data-reclamo='"+ json +"' data-ruta='"+ latLong +"' data-layer='"+ layer +"'>" +
+            "<div class='clase' data-reclamo='"+ json +"' data-ruta='"+ latLong +"' data-layer='"+ layer +"'>" +
                 "<div class='reclamo-popup-group'>" +
                     "<button class='reclamo-popup-btn btn-pop-reclamo-detalle'>Detalle</button>" +
                     "<button class='reclamo-popup-btn btn-pop-reclamo-ruta'>Ruta</button>" +
@@ -210,7 +212,9 @@ export class GoogleMapComponent {
 
     hiddenLayer(layer?: string) {
         if (layer){
-            this.layers[layer].setMap(null);
+            if(this.layers[layer]){
+                this.layers[layer].setMap(null);
+            }
         }else{
             // eliminar todos
         }
@@ -241,19 +245,18 @@ export class GoogleMapComponent {
 
     getMyLocation() {
         if(this.myPositionMarker){
-            return this.myPositionMarker.getLatLng();
+            return this.myPositionMarker.getPosition();
         }else{
             return false
         }
     }
     
     setStyles(layer: string, params: any){
-        let labelText: string;
-        let icon = '';
         // FUNCION A MEJORAR - DEBERIA PASARLE TODO EL JSON DE ESTYLOS POR PARAMETRO.
+        let labelText: string;
         function getProperty(feature: any){
             let i = 0;
-            params.forEach(property => {
+            params['prop'].forEach(property => {
                 if(i >= 1){
                     labelText = labelText[property];
                 }else{
@@ -265,11 +268,6 @@ export class GoogleMapComponent {
         
         this.layers[layer].setStyle(feature => {
             getProperty(feature);
-            if (feature.getProperty('reclamo').estado.toLowerCase() == 'cerrado'){
-                icon = 'assets/images/marker.png';
-            }else{
-                icon = 'assets/images/marker2.png';
-            }
             return /** @type {google.maps.Data.StyleOptions} */({
                 label: {
                     text: labelText,
@@ -278,11 +276,30 @@ export class GoogleMapComponent {
                     fontWeight: "bold",
                 },
                 icon: {
-                    url: icon,
+                    url: params.icon,
                     labelOrigin: new google.maps.Point(20, -10)
                 }
             });
         });
+    }
+
+    createCircle(latLng: any, radio: number, nombre: string) {
+        this.circles[nombre] = new google.maps.Circle({
+            strokeColor: '#80d7ff',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#b3e7ff',
+            fillOpacity: 0.35,
+            map: this.map,
+            center: latLng,
+            radius: radio
+        });
+    }
+
+    removeCircle(nombre: string){
+        if (this.circles[nombre]){
+            this.circles[nombre].setMap(null);;
+        }
     }
 
     presentConfirmGPS(title: string, message: string) {
@@ -309,6 +326,24 @@ export class GoogleMapComponent {
         alert.present();
     }
 
+    createPositionMarker(latLng: any) {
+        if(!this.myPositionMarker && latLng){
+            this.myPositionMarker = new google.maps.Marker({
+                position: latLng,
+                map: this.map,
+                title: 'Estoy aquí!',
+                icon: 'assets/images/my_position.png'
+            });
+        }else{
+            this.myPositionMarker = new google.maps.Marker({
+                position: this.map.getCenter(),
+                map: this.map,
+                title: 'For test!',
+                icon: 'assets/images/my_position.png'
+            });
+        }
+    }
+
     myLocationSet(center?:boolean){
         if(center && this.myPositionMarker){
             this.coreService.presentLoading('Cargando su ubicación...');
@@ -327,14 +362,7 @@ export class GoogleMapComponent {
                     this.geolocation.getCurrentPosition({enableHighAccuracy: true}).then((data) => {
                         let latLng = new google.maps.LatLng(data.coords.latitude, data.coords.longitude);
                         // Creamos el marcador de mi posición si este no existe.
-                        if(!this.myPositionMarker){
-                            this.myPositionMarker = new google.maps.Marker({
-                                position: latLng,
-                                map: this.map,
-                                title: 'Estoy aquí!',
-                                icon: 'assets/images/my_position.png'
-                            });
-                        }
+                        this.createPositionMarker(latLng);
                         // Movemos el marcador de nuestra posición a la nueva posición.
                         this.myPositionMarker.setPosition(latLng);
                         // Centramos el mapa en la nueva posición.

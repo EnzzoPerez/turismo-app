@@ -51,3 +51,24 @@ ion-item span{
 	position: fixed;
     margin-top: 5px;
 }
+
+.reclamo-popup-group{
+    display: flex !important;
+}
+
+.reclamo-popup-btn-group {
+    text-align: center !important;
+}
+
+.gm-style-iw div div div{
+    width: auto !important;
+}
+.reclamo-popup-btn {
+    border: 1px solid rgba(25, 27, 17, 0.29) !important;
+    margin-right: 5px !important;
+    padding: 5px !important;
+    cursor: pointer !important;
+    color: #FFF !important;
+    background: #32b332;
+    text-shadow: 1px 1px grey;
+}
