@@ -1,0 +1,164 @@
+{
+	"departamento":[	
+		{
+			"nombre":"Ambato",
+			"cabecera":"La Puerta",
+			"desc":"Los Pueblos Originarios que habitaron el territorio de Ambato fueron: Los pueblos de Singuil, Los Colpes, Los Huaycamas, Los Pomangastas. En el año 1.600, Nuño Rodríguez Beltrán se estableció en la localidad de La Puerta y desde allí comenzó su asentamiento. El espacio territorial pertenecía jurisdiccionalmente al entonces departamento Piedra Blanca, hoy Fray Mamerto Esquíú. Durante el gobierno de Crisanto Gómez, la legislatura de la provincia, dictó una ley el 20 de julio de 1.869, por la cual dividía el departamento de Piedra Blanca, en tres secciones departamentales: Piedra Blanca, Ambato y Paclín.",
+			"poblacion":"4463",
+			"thumbnail":"ambato.png",
+			"image":"ambato1.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-centro-2/ambato-c",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Ambato"
+		},
+		{
+			"nombre":"Ancasti",
+			"cabecera":"Villa de Ancasti",
+			"desc":"Ancasti es un lugar donde la fantasía y la realidad se confunden por sus paisajes multicolores, aromas campestres y los ríos sinuosos. Esta es una oportunidad de acompañarnos y deslumbrarte con historias y rincones atrapantes, con visitas a los sitios arqueológicos “Quebrada de Tipan”, “Campo de las Piedras”, “La Candelaria” y “La Tunita”.",
+			"poblacion":"2917",
+			"thumbnail":"ancasti.png",
+			"image":"ancasti-anquincila.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-este-2/ancasti",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Ancasti"
+		},
+		{
+			"nombre":"Andalgalá",
+			"cabecera":"Ciudad de Andalgalá",
+			"desc":"Como todo el territorio catamarqueño, este departamento ostenta siglos de nutrida ocupación aborigen, que a la llegada de los españoles se concentraban en las tribus calchaquíes como parcialidad de los andalagalas, de allí el topónimo del departamento. Durante el Gran Alzamiento Calchaquí que destruyera tres veces a Londres, se levanta la figura de don Juan Chelemín, bravo cacique de Andalgalá.",
+			"poblacion":"18132",
+			"thumbnail":"andalgala.png",
+			"image":"andalgala1.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-este/andalgala",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Andalgal%C3%A1"
+		},
+		{
+			"nombre":"Antofagasta de la Sierra",
+			"cabecera":"Villa de Antofagasta de la Sierra",
+			"desc":"Antofagasta de la Sierra, llamada \"la antesala del cielo\", se encuentra a 3323 msnm, rodeada de montañas que superan los 6.000 m de altura y cercana a enormes salares. Es el principal oasis de la Puna catamarqueña. Constituye, además, la cabecera departamental que se encuentra a mayor altitud en la provincia y la más alejada de la ciudad capital; San Fernando del Valle de Catamarca.",
+			"poblacion":"1436",
+			"thumbnail":"antofagasta-de-la-sierra.png",
+			"image":"antofagasta1.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=alojamientos-interior/antofagasta-de-la-sierra",
+			"link_wiki":"https://es.wikipedia.org/wiki/Antofagasta_de_la_Sierra"
+		},
+		{
+			"nombre":"Belén",
+			"cabecera":"Ciudad de Belén",
+			"desc":"Belén es el más antiguo de los territorios de la actual Provincia de Catamarca.  La llegada de los Incas al territorio se produjo alrededor  del año 1.480.  Esta zona del valle Calchaquí estaba poblada por los indios Hualfines, Culampajaes, Quilmes y Famayfiles, se hablaba en general un mismo idioma, el “Quechua”.",
+			"poblacion":"27843",
+			"thumbnail":"belen.png",
+			"image":"belen1.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-este/belen",
+			"link_wiki":"https://es.wikipedia.org/wiki/Bel%C3%A9n_(Catamarca)"
+		},
+		{
+			"nombre":"Capayán",
+			"cabecera":"Chumbicha",
+			"desc":"El Departamento Capayán registra los asentamientos humanos más antiguos del Valle de Catamarca. Las tribus que habitaron  el territorio fueron los Conetas, los Yacogasta y los Chumbicha. En el año 1.558, Coneta fue encomienda de Alonso de Tula Cervin y  a su muerte lo heredó su hijo Diego Gómez Bazán de Pedraza. Fue fundada el 23 de diciembre de 1.593. En 1.613, se hizo cargo su hijo Hernando de Pedraza Bazán quien también recibió el territorio de Miraflores.",
+			"poblacion":"16085",
+			"thumbnail":"capayan.png",
+			"image":"capayan1.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-centro-2/capayan",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Capay%C3%A1n"
+		},
+		{
+			"nombre":"Capital",
+			"cabecera":"Ciudad de San Fernando del Valle de Catamarca",
+			"desc":"Se trata de un importante centro turístico y comercial, como así también de activa vida cultural, que se desarrolla en su universidad, instituciones y museos. San Fernando del Valle fue fundada el 5 de julio de 1683 por Fernando de Mendoza y Mate de Luna, luego de varias fundaciones en las que el pueblo había sido bautizado con diferentes nombres y trasladado a diferentes lugares del actual territorio de la provincia de Catamarca.",
+			"poblacion":"159703",
+			"thumbnail":"capital.png",
+			"image": "capital1.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/polo-san-fernando/",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Capital_(Catamarca)"
+		},
+		{
+			"nombre":"El Alto",
+			"cabecera":"Villa El Alto",
+			"desc":"Antonio González del Pino, José Vera y Aragón y José San Martin de Lezama, son los primeros españoles a los que la historia recuerda como colonizadores que se afincaron en la zona, conocida en el Siglo XVII como Concepción del Alto que comprendía 5 pequeñas villas: Maquijata, Alijilan, Tibigasta, Sicha y Yocavil.",
+			"poblacion":"3570",
+			"thumbnail":"el-alto.png",
+			"image": "elalto.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-este-2/el-alto-c",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_El_Alto"
+		},
+		{
+			"nombre":"Fray Mamerto Esquiú",
+			"cabecera":"San José",
+			"desc":"Las tribus que originariamente habitaron el territorio de Fray Mamerto Esquiú fueron: los Sitguagastas, y Collagastas. Los primeros colonizadores llegaron a principios de 1.600 y se iniciaron las poblaciones de Pomancillo, por Nuño Rodríguez de Beltrán; El Hueco, por Luis Medina; San Antonio y El Hospicio, formaban parte de la merced de Allaptauca; este último donado para la residencia de los padres jesuitas en Catamarca en el año 1.744.",
+			"poblacion":"11896",
+			"thumbnail":"fray-mamerto-esquiu.png",
+			"image":"fme.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-centro-2/fray-mamerto-esquiu-c",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Fray_Mamerto_Esqui%C3%BA"
+		},
+		{
+			"nombre":"La Paz",
+			"cabecera":"Ciudad de Recreo",
+			"desc":"Sus primitivos habitantes serían descendientes de los Juries que eran aborígenes agricultores y se valían del riego artificial para sus cultivos.",
+			"poblacion":"22638",
+			"thumbnail":"la-paz.png",
+			"image":"lapaz.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-este-2/la-paz-c",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_La_Paz_(Catamarca)"
+		},
+		{
+			"nombre":"Paclín",
+			"cabecera":"La Merced",
+			"desc":"Las primeras tribus que habitaron el territorio de Paclín fueron los aquilingastas, en Amadores y Yocangastas, en Yocán. Al culminarse el siglo XVI en el Valle de Catamarca había aproximadamente 3.000 españoles; el obispo Trejo y Sanabria con fines de mejorar el proceso organizativo, crea lo que se denominó el Curato del Valle de Catamarca.",
+			"poblacion":"4185",
+			"thumbnail":"paclin.png",
+			"image":"paclin.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-centro-2/paclin",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Pacl%C3%ADn"
+		},
+		{
+			"nombre":"Pomán",
+			"cabecera":"Villa de Pomán",
+			"desc":"El 15 de Septiembre de 1633, Gerónimo Luis de Cabrera, fundó un asentamiento en los faldeos occidentales del Ambato. Corrían los tiempos de conquista y con este Gesto, los aldeanos buscaban mayor protección para la ciudad trashumante. Allí en el Valle de los Palcipas, hoy villa de Pomán; el Gobernador del Tucumán podría Apoyarse y ser auxiliado más fácilmente desde La Rioja o el Valle de Catamarca",
+			"poblacion":"10776",
+			"thumbnail":"poman.png",
+			"image":"poman1.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-este/poman",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Pom%C3%A1n"
+		},
+		{
+			"nombre":"Santa María",
+			"cabecera":"Ciudad de Santa María",
+			"desc":"En la época Precolombina la región estuvo habitada por  aborígenes que  representan a las culturas arqueológicas desde los 9.000 mil años antes de Cristo hasta los  períodos agro alfareros medio y tardío  (Cultura Santa María), de  gran desarrollo urbano, cerámica y construcciones en piedra; los incas dejaron  luego  su impronta cultural en la región a partir del siglo XV.",
+			"poblacion":"22548",
+			"thumbnail":"santa-maria.png",
+			"image":"santamaria.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-este/santa-maria",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Santa_Mar%C3%ADa_(Catamarca)"
+		},
+		{
+			"nombre":"Santa Rosa",
+			"cabecera":"Bañado de Ovanta",
+			"desc":"La Colonización española se inicia en este Departamento por Alijilan, un importante pueblo de indios que es obtenido en el Siglo XVII como merced de Don Claudio de Medina. Desde 1784, el territorio del actual Departamento de Santa Rosa formó parte del Beneficio de la Concepción de Guayamba. ",
+			"poblacion":"12034",
+			"thumbnail":"santa-rosa.png",
+			"image":"santarosa.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-este-2/santa-rosa",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Santa_Rosa_(Catamarca)"
+		},
+		{
+			"nombre":"Tinogasta",
+			"cabecera":"Ciudad de Tinogasta",
+			"desc":"Tinogasta ha sido poblada por grupos de indígenas pre cerámicos desde al menos 8.000 años a.C. La zona estuvo habitada por comunidades aborígenes  como los abaucanes, sahujiles, pituiles, huatungastas, mayupucas y  fiambalaos.",
+			"poblacion":"22360",
+			"thumbnail":"tinogasta.png",
+			"image":"tinogasta.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-este/tinogasta",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Tinogasta"
+		},
+		{
+			"nombre":"Valle Viejo",
+			"cabecera":"San Isidro",
+			"desc":"Numerosos historiadores de la región coinciden en afirmar que el asentamiento poblacional conocido como El Motimo o Motimogasta es el más antiguo del Valle Central. Habitada por la nación Diaguita que comprendía una gran variedad de tribus; Calchaquíes, Quilmes, Motimos, Polcos, Autigasta, Choyanos, Pomangastos y Capayanes",
+			"poblacion":"27242",
+			"thumbnail":"valle-viejo.png",
+			"image":"valleviejo.jpg",
+			"link_turismo":"http://www.turismo.catamarca.gob.ar/?vh_accommodation=polos-turisticos/polo-centro-2/valle-viejo-c",
+			"link_wiki":"https://es.wikipedia.org/wiki/Departamento_Valle_Viejo"
+		}
+	]
+}

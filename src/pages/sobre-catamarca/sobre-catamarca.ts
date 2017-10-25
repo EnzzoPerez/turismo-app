@@ -19,13 +19,13 @@ export class SobreCatamarcaPage {
     }
 
     ionViewDidLoad() {
-        this.listDeptos();
+		this.listDeptos();
     }
-
+	
     listDeptos(){
-      	this.infoCat.getDeptosList().subscribe( data => {
-			this.deptos = data['results'];
-			this.deptosFilter = data['results'];
+		this.infoCat.getDeptos().subscribe( data => {
+			this.deptos = data['departamento'];
+			this.deptosFilter = data['departamento'];
 		}, 
 		error => console.log(error));
 	}

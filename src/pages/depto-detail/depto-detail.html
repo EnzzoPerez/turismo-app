@@ -8,16 +8,20 @@
 
 
 <ion-content padding>
-	
+	<ion-slides>				
+		<ion-slide>
+			<img src="assets/images/departamentos/{{deptoDetail.image}}">
+		</ion-slide>	
+	</ion-slides>
 	<ion-card>
 		<ion-card-header>
 			Descripción
 		</ion-card-header>
-		<ion-card-content *ngIf="deptoDetail.descripcion">
-			<span [innerHTML] = "deptoDetail.descripcion">
+		<ion-card-content *ngIf="deptoDetail.desc">
+			<span [innerHTML] = "deptoDetail.desc">
 			</span>				
 		</ion-card-content>
-		<ion-card-content *ngIf="!deptoDetail.descripcion">
+		<ion-card-content *ngIf="!deptoDetail.desc">
 			No se cargaron datos.				
 		</ion-card-content>
 	</ion-card>
@@ -48,12 +52,12 @@
 	
 	<ion-card>
 		<ion-card-header>
-			Altitud
+			Cabecera
 		</ion-card-header>
 		<ion-card-content >
-			{{deptoDetail.altitud}}			
+			{{deptoDetail.cabecera}}			
 		</ion-card-content>
-		<ion-card-content *ngIf="!deptoDetail.etimologia">
+		<ion-card-content *ngIf="!deptoDetail.cabecera">
 			No se cargaron datos.				
 		</ion-card-content>
 	</ion-card>
