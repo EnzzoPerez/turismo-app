@@ -74,18 +74,16 @@
 
                 <ion-row *ngIf="POI.descripcion">
                     <ion-col>
-                        <button col-12 ion-button color="barra" (click)="openModal('detalle', POI)" icon-right>
+                        <button ion-button full small color="barra" (click)="openModal('detalle', POI)" round>
                             Ver detalle
-                            <ion-icon name='md-arrow-round-forward' item-start></ion-icon>
                         </button>
                     </ion-col>
                 </ion-row>
 
                 <ion-row>
                     <ion-col>
-                        <button col-12 ion-button color="barra" (click)="openModal('servicios', POI)" icon-right>
+                        <button ion-button full small color="barra" (click)="goToListServices(POI)" round>
                             Servicios cerca
-                            <ion-icon name='md-arrow-round-forward' item-start></ion-icon>
                         </button>
                     </ion-col>
                 </ion-row>
