@@ -102,7 +102,6 @@ export class GoogleMapComponent {
         }else{ 
             this.layers[layer].forEach(feature => {
                 feature.getGeometry().forEachLatLng(latlng => {
-                    console.log(latlng);
                     bounds.extend(latlng);
                 })
                 total++;
@@ -267,14 +266,10 @@ export class GoogleMapComponent {
         }
         
         this.layers[layer].setStyle(feature => {
-            getProperty(feature);
+            if(params.prop){
+                getProperty(feature);
+            }
             return /** @type {google.maps.Data.StyleOptions} */({
-                label: {
-                    text: labelText,
-                    fontFamily: "Courier",
-                    fontSize: "20px",
-                    fontWeight: "bold",
-                },
                 icon: {
                     url: params.icon,
                     labelOrigin: new google.maps.Point(20, -10)

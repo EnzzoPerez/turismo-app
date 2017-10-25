@@ -12,4 +12,9 @@ export class SgturHospedajesProvider extends SgturProvider {
         super(http);
     }
 
+    getRadioHospedajes(point: string, radio: number = 1){
+		return this.http.get(this.api_url + 'hospedaje/?geojson=true&dist='+ radio +'&point='+ point +'&format=json')
+			.map(res => res.json());
+	}
+
 }
