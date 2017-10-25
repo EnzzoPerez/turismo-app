@@ -2,6 +2,11 @@
 
     <ion-navbar>
         <ion-title>Mapa Interactivo</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="showFilterbox()">
+                <ion-icon name="ios-options"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 
 </ion-header>
@@ -19,14 +24,14 @@
         <ion-grid>
             <ion-row>
                 <ion-col col-12 style="text-align:center;">
-                    <ion-badge color="barra">{{ radio }} {{ radio==1?'metro':'metros' }}</ion-badge>
+                    <ion-badge color="barra">{{ radio }} {{ radio==1?'kilómetro':'kilómetros' }}</ion-badge>
                 </ion-col>
             </ion-row>
             <ion-row>
                 <ion-col col-12>
-                    <ion-range min="1" max="3000" step="1" snaps="true" color="barra" [(ngModel)]="radio" (ionChange)="radioChange($event)">
-                        <ion-label class="rangeLabel" range-left>1 m</ion-label>
-                        <ion-label class="rangeLabel" range-right>3000 m</ion-label>
+                    <ion-range min="1" max="100" step="1" snaps="true" color="barra" [(ngModel)]="radio" (ionChange)="radioChange($event)">
+                        <ion-label class="rangeLabel" range-left>1 km</ion-label>
+                        <ion-label class="rangeLabel" range-right>100 km</ion-label>
                     </ion-range>
                 </ion-col>
             </ion-row>

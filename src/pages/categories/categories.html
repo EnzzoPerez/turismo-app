@@ -6,10 +6,21 @@
 
 
 <ion-content>
-    <ion-list no-lines>
-        <button ion-item *ngFor="let category of categories" (click)="categorySelected(category)">
+	<div *ngIf="loader" class="loader-div">
+		<img src="assets/images/loader.gif">
+	</div>
+    <ion-list id="categories-list">
+    	<ion-item *ngFor="let category of categories" (click)="categorySelected(category)">
+		    <ion-thumbnail item-start>
+		      <img src="assets/images/turismo-catamarca.jpg">
+		    </ion-thumbnail>
+		    <h2>{{ category.nombre }}</h2>
+		    <p>POI encontrados: {{ category.poi_count }}</p>
+		    <ion-icon name="arrow-forward" item-end></ion-icon>
+	  	</ion-item>
+        <!--button ion-item *ngFor="let category of categories" (click)="categorySelected(category)">
             {{ category.nombre }}
             <ion-badge item-end color="blue">{{ category.poi_count }}</ion-badge>
-        </button> 
+        </button--> 
     </ion-list>
 </ion-content>

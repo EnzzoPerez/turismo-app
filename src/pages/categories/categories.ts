@@ -15,9 +15,10 @@ import { PoiListPage } from '../poi-list/poi-list';
 export class CategoriesPage {
 
     categories: any;
+    loader: boolean;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private sgturPOIProvider: SgturPOIProvider) {
-        
+        this.loader = true;
     }
 
     ionViewDidLoad() {
@@ -25,10 +26,11 @@ export class CategoriesPage {
             data => {
                 // Filtramos para mostrar solo las categorías que contengan POIs
                 this.categories = _.filter(data['results'], function(r){return r.poi_count > 0})
-                console.log(this.categories);
+                this.loader = false;
             },
             error => {
                 console.log(error);
+                this.loader = false;
             }
         );
     }
