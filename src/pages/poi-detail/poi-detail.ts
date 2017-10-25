@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 
 import { CoreProvider } from './../../providers/core/core'
 import { PoiDetailModalDescPage } from './../poi-detail-modal-desc/poi-detail-modal-desc';
+import { PoiDetailServiciosPage } from './../poi-detail-servicios/poi-detail-servicios';
 
 
 @IonicPage()
@@ -31,6 +32,10 @@ export class PoiDetailPage {
         let modal = null;
         if (type == "detalle"){
             modal = this.modalCtrl.create(PoiDetailModalDescPage, { titulo: data.titulo, detalle: data.descripcion });
+        }
+
+        if (type == "servicios"){
+            modal = this.modalCtrl.create(PoiDetailServiciosPage, {'data': data});
         }
         modal.present();
     }
