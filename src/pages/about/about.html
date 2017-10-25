@@ -1,7 +1,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>About</ion-title>
+        <ion-title>Contacto</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -9,15 +9,26 @@
 
 <ion-content>
     <ion-card>
-        <img src="assets/images/catamarca1.jpg" style="padding:5px;" />
+        <img src="assets/images/about-sgtur.png" style="padding:5px;" />
         <hr>
         <ion-card-content>
-            <ion-card-title>
-                Turismo Catamarca
-            </ion-card-title>
-            <p>
-                Turismo Catamarca.
-            </p>
+            <div ion-col col-md-12>
+                <ion-card-title>
+                    Información de Contacto
+                </ion-card-title>
+            </div>
+            <div ion-col col-md-6 (click)="openTel(+5403834455308)">
+                <button ion-button small class="llamar-btn">
+                    <ion-icon name="call"></ion-icon>
+                </button>
+                +54 0383 4455308
+            </div>
+            <div ion-col col-md-6 (click)="openMail('infoturismo@catamarca.gov.ar')>
+                <button ion-button small class="mail-btn">
+                    <ion-icon name="ios-mail-outline"></ion-icon>
+                </button>
+                infoturismo@catamarca.gov.ar
+            </div>
         </ion-card-content>
         <span id="colmenacoop">powered by
             <b>ColmenaCoop.</b>

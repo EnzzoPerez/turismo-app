@@ -1,25 +1,32 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the AboutPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CoreProvider } from './../../providers/core/core'
+
 
 @IonicPage()
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html',
+    selector: 'page-about',
+    templateUrl: 'about.html',
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(
+        public navCtrl: NavController, 
+        public navParams: NavParams,
+        private coreService: CoreProvider
+    ) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AboutPage');
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad AboutPage');
+    }
+
+    openTel(text: string){      
+        this.coreService.openLink(text, 'tel');
+    }
+
+    openMail(text: string) {
+        this.coreService.openLink(text, 'mail');
+    }
 
 }

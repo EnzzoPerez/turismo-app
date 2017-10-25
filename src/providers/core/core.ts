@@ -67,4 +67,16 @@ export class CoreProvider {
         alert.present();
     }
 
+    openLink(data: any, type: string) {
+        if(type == 'tel'){
+             window.open("tel:" + data);
+        }
+        else if(type == 'mail'){
+            window.open(`mailto:${data}`, '_system');
+        }
+        else if(type == 'web'){
+             window.open(`http:${data}`, '_system');
+        }  
+    }
+
 }

@@ -8,10 +8,29 @@
 
 
 <ion-content>
+	<div *ngIf="loader" class="loader-div">
+		<img src="assets/images/loader.gif">
+	</div>
     <ion-list>
-        <button ion-item *ngFor="let poi of POIList" (click)="goToPOIDetail(poi)">
+    	<ion-item *ngFor="let poi of POIList" (click)="goToPOIDetail(poi)">
+		    <ion-thumbnail item-start>
+		      <img src="assets/images/turismo-catamarca.jpg">
+		    </ion-thumbnail>
+		    <h2>{{ poi.titulo }}</h2>
+		    <p *ngIf="poi.localidad">	
+		    	<label *ngIf="poi.localidad.nombre">
+		    		{{ poi.localidad.nombre}} - 
+		    	</label>
+		    	<label *ngIf="poi.localidad.departamento">
+		    		{{ poi.localidad.departamento }}
+		    	</label>
+		    </p>
+		    
+		    <ion-icon name="arrow-forward" item-end></ion-icon>
+	  	</ion-item>
+        <!--button ion-item *ngFor="let poi of POIList" (click)="goToPOIDetail(poi)">
             {{ poi.titulo }}
             <ion-icon name="arrow-forward" item-end></ion-icon>
-        </button> 
+        </button--> 
     </ion-list>
 </ion-content>

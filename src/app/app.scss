@@ -15,7 +15,7 @@
 // automatically applied to the <body> element in the app.
 
 * {
-	font-family: 'Oswald', sans-serif;
+	//font-family: 'Oswald', sans-serif;
 }
 
 .toolbar-background-md {
@@ -35,8 +35,10 @@ ion-icon{
 	font-size: 1.7em;
 }
 
+// ICONOS Y TEXTO DEL MENU DESPLEGABLE
 .menu-inner .list-md .label-md{
-	color: #f05e2a;
+	color: #72a7f4;
+    font-weight: bold
 }
 
 .content-md{
@@ -71,4 +73,13 @@ ion-item span{
     color: #FFF !important;
     background: #32b332;
     text-shadow: 1px 1px grey;
+}
+
+.loader-div {
+    text-align: center;
+    margin-top: 50%;
+    img {
+        width: 100px;
+        height: 120px;
+    }
 }

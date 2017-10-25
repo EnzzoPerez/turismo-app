@@ -14,19 +14,23 @@ export class PoiListPage {
 
     categoryName: string;
     POIList: any;
+    loader: boolean;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private sgturPOIProvider: SgturPOIProvider) {
         this.categoryName = this.navParams.get('nombre');
+        this.loader = true;
     }
 
     ionViewDidLoad() {
         this.sgturPOIProvider.getPOIByCategory(this.navParams.get('nombre')).subscribe(
             data => {
-                this.POIList = data['results']
-                console.log(this.POIList);
+                this.POIList = data['results'];
+                console.log(data['results']);
+                this.loader = false;
             },
             error => {
                 console.log(error);
+                this.loader = false;
             }
         );
     }
