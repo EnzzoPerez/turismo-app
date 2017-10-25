@@ -72,7 +72,7 @@
                     </ion-col>
                 </ion-row>
 
-                <ion-row id="centrado" *ngIf="POI.descripcion">
+                <ion-row *ngIf="POI.descripcion">
                     <ion-col>
                         <button col-12 ion-button color="barra" (click)="openModal('detalle', POI)" icon-right>
                             Ver detalle
@@ -81,9 +81,9 @@
                     </ion-col>
                 </ion-row>
 
-                <ion-row id="centrado">
+                <ion-row>
                     <ion-col>
-                        <button col-12 ion-button color="barra" icon-right>
+                        <button col-12 ion-button color="barra" (click)="openModal('servicios', POI)" icon-right>
                             Servicios cerca
                             <ion-icon name='md-arrow-round-forward' item-start></ion-icon>
                         </button>
