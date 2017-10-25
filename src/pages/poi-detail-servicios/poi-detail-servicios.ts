@@ -31,7 +31,6 @@ export class PoiDetailServiciosPage {
 
     ionViewDidLoad() {
         let coord = this.data.ubicacion.coordinates;
-        console.log(coord);
         
         this.hospedajeProvider.list(false, coord[0], coord[1]).subscribe(
             data => {
@@ -42,13 +41,13 @@ export class PoiDetailServiciosPage {
                 _.forEach(tmp_clase_hotel, function(value, key) {
                     clase_hotel[key.split(' ').join('_').toLowerCase()] = {
                         'value': value,
-                        'title': key
+                        'title': key,
+                        'count': value.length,
                     }
                 });
 
                 this.hospedajes = clase_hotel;
                 this.categoria_hospedajes = _.keys(this.hospedajes);
-                console.log(this.hospedajes);        // DELETE THIS LINE
                 this.loader = false;
             },
             error => console.log(error),
