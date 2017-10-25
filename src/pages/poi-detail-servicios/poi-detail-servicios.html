@@ -13,7 +13,7 @@
         <img src="assets/images/loader.gif">
     </div>
 
-    <ion-card>
+    <ion-card *ngIf="!loader">
         <ion-card-header>
             <ion-icon ios="logo-buffer" md="logo-buffer"></ion-icon> Alojamientos
         </ion-card-header>

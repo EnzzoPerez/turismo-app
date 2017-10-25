@@ -47,7 +47,7 @@ export class PoiDetailServiciosPage {
                 });
 
                 this.hospedajes = clase_hotel;
-                this.categoria_hospedajes = _.keys(this.hospedajes);
+                this.categoria_hospedajes = _.orderBy(_.keys(this.hospedajes));
                 this.loader = false;
             },
             error => console.log(error),
