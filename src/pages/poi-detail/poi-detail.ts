@@ -33,12 +33,15 @@ export class PoiDetailPage {
         if (type == "detalle"){
             modal = this.modalCtrl.create(PoiDetailModalDescPage, { titulo: data.titulo, detalle: data.descripcion });
         }
-
-        if (type == "servicios"){
-            modal = this.modalCtrl.create(PoiDetailServiciosPage, {'data': data});
-        }
+        
         modal.present();
     }
+
+    goToListServices(data: any){
+        this.navCtrl.push(PoiDetailServiciosPage, {'data': data})
+    }
+
+
 
     openTel(text: string){
         let newText = text.replace(';','');
