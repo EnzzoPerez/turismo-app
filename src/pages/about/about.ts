@@ -29,4 +29,8 @@ export class AboutPage {
         this.coreService.openLink(text, 'mail');
     }
 
+    openWeb(text: string) {
+        this.coreService.openLink(text, 'web');
+    }
+
 }
