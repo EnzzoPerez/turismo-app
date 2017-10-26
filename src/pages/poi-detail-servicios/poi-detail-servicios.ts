@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import * as _ from "lodash";
 
 import { SgturHospedajesProvider } from '../../providers/sgtur/hospedaje';
 
 
-declare var _: any;
 
 @IonicPage()
 @Component({
