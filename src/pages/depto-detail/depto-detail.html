@@ -13,52 +13,40 @@
 			<img src="assets/images/departamentos/{{deptoDetail.image}}">
 		</ion-slide>	
 	</ion-slides>
-	<ion-card>
+	<ion-card *ngIf="deptoDetail.desc">
 		<ion-card-header>
 			Descripción
 		</ion-card-header>
-		<ion-card-content *ngIf="deptoDetail.desc">
+		<ion-card-content>
 			<span [innerHTML] = "deptoDetail.desc">
 			</span>				
 		</ion-card-content>
-		<ion-card-content *ngIf="!deptoDetail.desc">
-			No se cargaron datos.				
-		</ion-card-content>
 	</ion-card>
 	
-	<ion-card>
+	<ion-card *ngIf="deptoDetail.etimologia">
 		<ion-card-header>
 			Etimología
 		</ion-card-header>
-		<ion-card-content *ngIf="deptoDetail.etimologia">
+		<ion-card-content>
 			{{deptoDetail.etimologia}}		
-		</ion-card-content>
-		<ion-card-content *ngIf="!deptoDetail.etimologia">
-			No se cargaron datos.				
 		</ion-card-content>
 	</ion-card>
 	
-	<ion-card>
+	<ion-card *ngIf="!deptoDetail.poblacion">
 		<ion-card-header>
 			Población
 		</ion-card-header>
 		<ion-card-content >
 			{{deptoDetail.poblacion}}			
 		</ion-card-content>
-		<ion-card-content *ngIf="!deptoDetail.poblacion">
-			No se cargaron datos.				
-		</ion-card-content>
 	</ion-card>
 	
-	<ion-card>
+	<ion-card *ngIf="deptoDetail.cabecera">
 		<ion-card-header>
 			Cabecera
 		</ion-card-header>
 		<ion-card-content >
 			{{deptoDetail.cabecera}}			
-		</ion-card-content>
-		<ion-card-content *ngIf="!deptoDetail.cabecera">
-			No se cargaron datos.				
 		</ion-card-content>
 	</ion-card>
 </ion-content>
