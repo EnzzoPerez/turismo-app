@@ -1,0 +1,108 @@
+<!--
+  Generated template for the HospedajeDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalle</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-card>
+        <div *ngIf="hospedaje.imagenes.length > 0; else noImage">
+            <ion-slides pager>
+                <ion-slide *ngFor="let image of hospedaje.imagenes">
+                    <img [src]="'https://sgtur.catamarca.gob.ar' + image.image.medium_square_crop">
+                </ion-slide>
+            </ion-slides>
+        </div>
+        <ng-template #noImage>
+            <img src="assets/images/no-imagen.gif">
+        </ng-template>
+
+        <ion-card-content>
+
+            <ion-card-title align="center">
+                {{ hospedaje.nombre }}
+            </ion-card-title>
+
+            <ion-grid>
+
+                <ion-row>
+                    <div ion-col align="center">
+                        <span *ngIf="hospedaje.domicilio">
+                            {{ hospedaje.domicilio }} - 
+                        </span>
+                        <span *ngIf="hospedaje.localidad && hospedaje.localidad.nombre">
+                            {{ hospedaje.localidad.nombre }} - 
+                        </span>
+                        <span *ngIf="hospedaje.localidad && hospedaje.localidad.departamento">
+                            {{ hospedaje.localidad.departamento }} 
+                        </span>
+                    </div>
+                </ion-row>
+                <hr>
+
+                <div *ngIf="hospedaje.telefonos">
+                    <ion-row *ngFor="let t of hospedaje.telefonos">
+                        <div ion-col col-sm-6 *ngIf="t.tipo != 'Celular'">
+                            <button ion-button small class="llamar-btn" (click)="openTel(t.numero)">
+                                <ion-icon name="call"></ion-icon>
+                            </button>
+                            {{ t.numero }}
+                        </div>
+                        <div ion-col col-sm-6 *ngIf="t.tipo == 'Celular'">
+                            <button ion-button small class="llamar-btn" (click)="openTel(t.numero)">
+                                <ion-icon name="call"></ion-icon>
+                            </button>
+                            {{ t.numero }}
+                        </div>
+                    </ion-row>
+                </div>
+
+                <ion-row *ngIf="hospedaje.forma_pago.lenght > 0">
+                    <ion-col>
+                        <ion-icon name="cash"></ion-icon> Formas de pago: {{ hospedaje.formas_pago }}
+                    </ion-col>
+                </ion-row>
+                <ion-row *ngIf="hospedaje.tarjetas.lenght > 0">
+                    <ion-col>
+                        <ion-icon name="card"></ion-icon> Tarjetas: {{ hospedaje.tarjetas }}
+                    </ion-col>
+                </ion-row>
+
+                <ion-row id="centrado" *ngIf="hospedaje.servicios.length">
+                    <ion-col>
+                        <button col-12 ion-button color="barra" (click)="openModal('servicio', hospedaje.servicios)" round>
+                            Servicios
+                        </button>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row id="centrado" *ngIf="hospedaje.tarifas.length">
+                    <ion-col>
+                        <button col-12 ion-button color="barra" (click)="openModal('tarifa', hospedaje.tarifas)" round>
+                            Tarifas y precios
+                        </button>  
+                    </ion-col>
+                </ion-row>
+
+                <ion-row id="centrado" *ngIf="coord">
+                    <ion-col>
+                        <button col-12 ion-button color="barra" (click)="openNavigation()" round>
+                            Como llegar
+                        </button>
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+
+        </ion-card-content>
+    </ion-card>
+</ion-content>

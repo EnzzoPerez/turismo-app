@@ -37,6 +37,7 @@ import { PoiDetailPage } from './../pages/poi-detail/poi-detail';
 import { PoiDetailModalDescPageModule } from './../pages/poi-detail-modal-desc/poi-detail-modal-desc.module';
 import { PoiDetailModalDescPage } from '../pages/poi-detail-modal-desc/poi-detail-modal-desc';
 import { InfoCatProvider } from '../providers/sgtur/infoCat';
+import { HospedajeDetailPageModule } from '../pages/hospedaje-detail/hospedaje-detail.module'
 
 
 
@@ -57,7 +58,8 @@ import { InfoCatProvider } from '../providers/sgtur/infoCat';
         BusquedaPageModule,
         SobreCatamarcaPageModule,
         PoiDetailModalDescPageModule,
-        DeptoDetailPageModule
+        DeptoDetailPageModule,
+        HospedajeDetailPageModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [

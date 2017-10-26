@@ -22,6 +22,7 @@ export class PoiDetailPage {
         private coreService: CoreProvider
     ) {
         this.POI = this.navParams.get('poi');
+        //console.log(this.POI);
     }
 
     ionViewDidLoad() {

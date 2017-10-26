@@ -7,6 +7,7 @@ import { SgturPOIProvider } from './../../providers/sgtur/poi'
 import { SgturHospedajesProvider } from './../../providers/sgtur/hospedaje'
 import { AmauttaComerciosProvider } from './../../providers/amautta/comercios'
 import { PoiDetailPage } from './../poi-detail/poi-detail';
+import { HospedajeDetailPage } from './../hospedaje-detail/hospedaje-detail';
 
 import * as $ from 'jquery'
 
@@ -38,7 +39,7 @@ export class MapaPage {
         private hospedajeService: SgturHospedajesProvider,
         private comercioService: AmauttaComerciosProvider
     ) {
-    	this.filters = {poi: true, hospedaje: false, comercio: false, cajero: false};
+    	this.filters = {poi: true, hospedaje: true, comercio: false, cajero: false};
 
         $(document).on("click", '#search-float-button', () => {
 			$('#button-wrapper').show();
@@ -56,7 +57,7 @@ export class MapaPage {
 
         // DETAIL BUTTON EVENT 
 		$(document).on({'click.detail-event': () => {
-				this.goToDetail($('.infowindow-popup').data('layer'), $('.infowindow-popup').data('properties'));
+				this.goToDetail($('.infowindow-popup').data('layer'), $('.infowindow-popup').data('properties'), $('.infowindow-popup').data('point'));
             }
         }, '.btn-detalle');
 
@@ -94,13 +95,13 @@ export class MapaPage {
         this.menuCtrl.swipeEnable(true);
     }
 
-    goToDetail(layer: string, data?: any) {
+    goToDetail(layer: string, data?: any, coord?: any) {
         if(layer && data){
         	if (layer == 'poi'){
         		this.navCtrl.push(PoiDetailPage, {poi: data});
         	}
         	if (layer == 'hospedaje'){
-
+        		this.navCtrl.push(HospedajeDetailPage, {hospedaje: data, coord: coord});
         	}
         	if (layer == 'comercio'){
 

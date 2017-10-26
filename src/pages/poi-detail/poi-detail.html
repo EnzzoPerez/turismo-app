@@ -7,19 +7,16 @@
 
 <ion-content>
     <ion-card>
-        <!--ion-slides pager effect="flip">
-        <ion-slide>
-        <img src="assets/images/casino1.jpg">
-        </ion-slide>
-        <ion-slide>
-        <img src="assets/images/casino2.jpg">
-        </ion-slide>
-        <ion-slide>
-        <img src="assets/images/casino3.jpg">
-        </ion-slide>
-        </ion-slides-->
-
-        <img src="assets/images/no-imagen.gif" alt="">
+        <div *ngIf="POI.imagenes; else noImage">
+            <ion-slides pager>
+                <ion-slide *ngFor="let image of POI.imagenes">
+                    <img [src]="'https://sgtur.catamarca.gob.ar' + image.image.medium_square_crop">
+                </ion-slide>
+            </ion-slides>
+        </div>
+        <ng-template #noImage>
+            <img src="assets/images/turismo-catamarca.jpg">
+        </ng-template>
 
         <ion-card-content>
 

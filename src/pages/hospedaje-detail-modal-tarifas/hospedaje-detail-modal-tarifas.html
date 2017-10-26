@@ -1,0 +1,29 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Tarifas y Precios</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="closeModal()"><ion-icon name="close"></ion-icon></button>			
+		</ion-buttons>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-card *ngFor="let t of tarifa; let i = index">
+		<ion-card-header>
+			<b>{{ t.concepto }}</b>
+		</ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<p><ion-icon name='pricetags' item-start></ion-icon>Costo: {{ t.monto }}</p>
+				</ion-row>
+				<ion-row>
+					<p><ion-icon name='cash' item-start></ion-icon>Moneda: {{ t.moneda }}</p>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+</ion-content>
