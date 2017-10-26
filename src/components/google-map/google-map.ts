@@ -20,9 +20,9 @@ export class GoogleMapComponent {
     @ViewChild('map') mapElement: ElementRef;
 
     // MAP CONFIG
-    @Input() zoom: number = 14;
-    @Input('lat') latitude: number = -28.468452;
-    @Input('lng') longitude: number = -65.779094;
+    @Input('zoom') public zoom: number = 14;
+    @Input('lat') public latitude: number = -28.468452;
+    @Input('lng') public longitude: number = -65.779094;
     @Input('height_map') public height_map;
 
     // INITIAL VARS
@@ -53,7 +53,7 @@ export class GoogleMapComponent {
         private coreService: CoreProvider
     ) {
         platform.ready().then(() => {
-            this.initMap();
+            //this.initMap();
         });
         this.myPositionMarker = null;
     }
@@ -63,6 +63,7 @@ export class GoogleMapComponent {
     }
 
     initMap() {
+        console.log(this.zoom);
         let mapEle = this.mapElement.nativeElement;
         let latLng = new google.maps.LatLng(this.latitude, this.longitude);
 
@@ -176,17 +177,20 @@ export class GoogleMapComponent {
 
     setMarkerOnClick(layer:string){
          this.layers[layer].addListener('click', (event: any) => {
+            // Obtenemos todas las propiedades del objeto
             let json = JSON.stringify(event.feature.f);
             let latLong: any;
+
             event.feature.getGeometry().forEachLatLng((latlng: any) => {
                 latLong = JSON.stringify([latlng.lat(), latlng.lng()]);
             });
+
             let div = 
-            "<div class='clase' data-reclamo='"+ json +"' data-ruta='"+ latLong +"' data-layer='"+ layer +"'>" +
-                "<div class='reclamo-popup-group'>" +
-                    "<button class='reclamo-popup-btn btn-pop-reclamo-detalle'>Detalle</button>" +
-                    "<button class='reclamo-popup-btn btn-pop-reclamo-ruta'>Ruta</button>" +
-                    "<button class='reclamo-popup-btn btn-pop-reclamo-navegador'>Navegador</button>" +
+            "<div class='infowindow-popup' data-properties='"+ json +"' data-point='"+ latLong +"' data-layer='"+ layer +"'>" +
+                "<div class='infowindow-group'>" +
+                    "<button class='infowindow-btn btn-detalle'>Detalle</button>" +
+                    "<button class='infowindow-btn btn-ruta'>Ruta</button>" +
+                    "<button class='infowindow-btn btn-navegador'>Navegador</button>" +
                 "</div>"+
             "</div>";
             this.infowindow.setContent("<div style='width:150px; text-align: center;'>"+ div +"</div>");
@@ -391,7 +395,7 @@ export class GoogleMapComponent {
                     if (this.myPositionMarker){
                         this.myPositionMarker.setPosition(latLng);
                     }else{
-                        this.myLocationSet();
+                        this.myLocationSet(true);
                     }
                 }));
             } 

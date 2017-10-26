@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { LoadingController, ToastController, AlertController } from 'ionic-angular';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 
 
 @Injectable()
@@ -15,7 +16,8 @@ export class CoreProvider {
         public http: Http, 
         public loadingCtrl: LoadingController, 
         public toastCtrl: ToastController,
-        public alertCtrl: AlertController
+        public alertCtrl: AlertController,
+        private launchNavigator: LaunchNavigator
     ){
         
     }
@@ -40,7 +42,6 @@ export class CoreProvider {
             });
             this.toast.present(this.toast);
         }
-        
     }
 
     presentLoading(msg: string) {
@@ -77,6 +78,13 @@ export class CoreProvider {
         else if(type == 'web'){
              window.open(`http:${data}`, '_system');
         }  
+        else if(type == 'geo'){
+            this.launchNavigator.navigate(data)
+            .then(
+              success => console.log('Launched navigator'),
+              error => console.log('Error launching navigator', error)
+            );
+        }
     }
 
 }

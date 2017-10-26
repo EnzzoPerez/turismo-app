@@ -5,6 +5,8 @@ import { GoogleMapComponent } from './../../components/google-map/google-map';
 import { CoreProvider } from './../../providers/core/core';
 import { SgturPOIProvider } from './../../providers/sgtur/poi'
 import { SgturHospedajesProvider } from './../../providers/sgtur/hospedaje'
+import { AmauttaComerciosProvider } from './../../providers/amautta/comercios'
+import { PoiDetailPage } from './../poi-detail/poi-detail';
 
 import * as $ from 'jquery'
 
@@ -31,9 +33,10 @@ export class MapaPage {
         private platform: Platform,
         public menuCtrl: MenuController,
         private coreService: CoreProvider,
+        public alertCtrl: AlertController,
         private poiService: SgturPOIProvider,
         private hospedajeService: SgturHospedajesProvider,
-        public alertCtrl: AlertController
+        private comercioService: AmauttaComerciosProvider
     ) {
     	this.filters = {poi: true, hospedaje: false, comercio: false, cajero: false};
 
@@ -45,12 +48,41 @@ export class MapaPage {
 		$(document).on("click", '#close-button', () => {
 			$('#button-wrapper').hide();
 		});
+
+		// INFOWINDOW BUTTON EVENTS
+		$(document).off('click.poi-detail-event', '.btn-detalle');
+        $(document).off('click.poi-ruta-event', '.btn-ruta');
+        $(document).off('click.poi-navegador-event', '.btn-navegador');
+
+		$(document).on({'click.poi-detail-event': () => {
+				this.goToPOIDetail($('.infowindow-popup').data('properties'));//[data-layer="poi"]
+            }
+        }, '.btn-detalle');
+
+        $(document).on({'click.poi-ruta-event': () => {
+                this.map.prepareRoute($('.infowindow-popup').data('layer'), $('.infowindow-popup').data('point'));
+            }
+        }, '.btn-ruta');
+
+        $(document).on({'click.poi-navegador-event': () => {
+            //this.coreService.showAlert('', this.map.myPositionMarker.position);
+            //this.coreService.showAlert('', $('.reclamo-popup').data('ruta'));
+                this.coreService.openLink($('.infowindow-popup').data('point'), 'geo');
+            }
+        }, '.btn-navegador');
+
     }
 
     ionViewDidLoad() {
         this.platform.ready().then(() => {
-            this.map.resizeMap();
-            this.map.myLocationWatch();
+        	this.map.zoom = 14;
+        	this.map.initMap()
+            //this.map.resizeMap();
+            if (this.platform.is('cordova')) {
+            	this.map.myLocationWatch();
+            }else{
+            	this.map.createPositionMarker(false);
+            }
             // COMENTAR PARA PRODUCCION
             //this.map.createPositionMarker(false);
         });
@@ -60,6 +92,15 @@ export class MapaPage {
         this.menuCtrl.swipeEnable(true);
     }
 
+    goToPOIDetail(data?: any) {
+        if(data){
+            //this.navCtrl.push(PoiDetailPage, {poi: data});
+            console.log(data);
+        }else{
+            
+        }
+	
+    }
 
     myLocationSet(center?:boolean){
         this.map.myLocationSet(true);
@@ -85,7 +126,7 @@ export class MapaPage {
 		var iconCajero = 'assets/images/marker4.png';
 
 		if(this.filters.poi){
-			this.poiService.getRadioPOI(latLng.lng() + ',' + latLng.lat(), this.radio * 1000).subscribe (
+			this.poiService.list(true, latLng.lng(), latLng.lat(), this.radio * 1000).subscribe (
 				data => {
 					this.map.hiddenLayer('poi');
 					this.map.createLayer('poi');
@@ -102,9 +143,8 @@ export class MapaPage {
 		}
 
 		if(this.filters.hospedaje){
-			this.hospedajeService.getRadioHospedajes(latLng.lng() + ',' + latLng.lat(), this.radio * 1000).subscribe (
+			this.hospedajeService.list(true, latLng.lng(), latLng.lat(), this.radio * 1000).subscribe (
 				data => {
-					console.log(data['results']);
 					this.map.hiddenLayer('hospedajes');
 					this.map.createLayer('hospedajes');
 					this.map.addGeoJson('hospedajes', data['results']);
@@ -120,7 +160,21 @@ export class MapaPage {
 		}
 
 		if(this.filters.comercio){
-			
+			this.comercioService.list(true, latLng.lng(), latLng.lat(), this.radio * 1000).subscribe (
+				data => {
+					console.log(data['results']);
+					this.map.hiddenLayer('comercio');
+					this.map.createLayer('comercio');
+					this.map.addGeoJson('comercio', data['results']);
+					this.map.setStyles('comercio', {icon:iconComercio});
+					this.map.setBounds('comercio');
+        			this.map.setMarkerOnClick('comercio');
+					this.coreService.dismissLoading();
+				},
+				error => {
+					this.coreService.dismissLoading();
+				}
+			);
 		}
 
 		if(this.filters.cajero){

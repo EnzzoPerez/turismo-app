@@ -21,7 +21,7 @@ export class HomePage {
         this.items = [
             { titulo:'mapa', subtitulo: 'Encontra lo que buscas cerca de tí', color: '#3276b1', icon:'assets/images/icono-mapa.png', component:MapaPage, },
             { titulo:'atractivos', subtitulo: 'Descubrí Catamarca', color: '#5cb85c', icon:'assets/images/icono-turista.png', component:CategoriesPage},
-            { titulo:'busqueda', subtitulo: 'Que estas buscando ?', color: '#f0ad4e', icon:'assets/images/icono-buscar.png', component:BusquedaPage },
+            //{ titulo:'busqueda', subtitulo: 'Que estas buscando ?', color: '#f0ad4e', icon:'assets/images/icono-buscar.png', component:BusquedaPage },
             { titulo:'catamarca', subtitulo: 'Acerca de Catamarca', color: '#d9534f', icon:'assets/images/icono-historia.png', component:SobreCatamarcaPage },
         ]
     }

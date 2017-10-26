@@ -25,4 +25,23 @@ export class SgturPOIProvider extends SgturProvider {
 			.map(res => res.json());
 	}
 
+    list(geojson?: boolean, lon?: number, lat?: number, dist: number = 50000, items: number = 100){
+        let queryparams = 'poi/?format=json&ordering=categoria__nombre&page_size=' + items;
+        
+        if (geojson){
+            queryparams += '&geojson=true';
+        }
+
+        if (lon && lat){
+            console.log('lat & lon')
+            queryparams += '&dist=' + dist + '&point=' + lon + ',' + lat;
+        }
+
+        console.log(this.api_url + queryparams);
+
+        return this.http.get(this.api_url + queryparams).map(
+            response => response.json()
+        );
+    }
+
 }

@@ -54,24 +54,25 @@ ion-item span{
     margin-top: 5px;
 }
 
-.reclamo-popup-group{
+.infowindow-popup-group{
     display: flex !important;
 }
 
-.reclamo-popup-btn-group {
+.infowindow-btn-group {
     text-align: center !important;
 }
 
 .gm-style-iw div div div{
     width: auto !important;
 }
-.reclamo-popup-btn {
-    border: 1px solid rgba(25, 27, 17, 0.29) !important;
+
+.infowindow-btn {
+    border: 1px solid rgba(27, 142, 194, 0.96) !important;
     margin-right: 5px !important;
     padding: 5px !important;
     cursor: pointer !important;
     color: #FFF !important;
-    background: #32b332;
+    background: rgba(27, 142, 194, 0.96);
     text-shadow: 1px 1px grey;
 }
 
@@ -82,4 +83,14 @@ ion-item span{
         width: 100px;
         height: 120px;
     }
+}
+
+// COLOR DE BOTONES Y CHECKBOX DE ALERTA
+.alert-md .alert-button {
+    color: #4999d4 !important;
+}
+
+.alert-md [aria-checked=true] .alert-checkbox-icon {
+    border-color: #4999d4 !important;
+    background-color: #4999d4 !important;
 }

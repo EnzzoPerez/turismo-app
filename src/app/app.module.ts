@@ -8,6 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Device } from '@ionic-native/device';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { Geolocation } from '@ionic-native/geolocation';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -36,6 +37,7 @@ import { PoiDetailPage } from './../pages/poi-detail/poi-detail';
 import { PoiDetailModalDescPageModule } from './../pages/poi-detail-modal-desc/poi-detail-modal-desc.module';
 import { PoiDetailModalDescPage } from '../pages/poi-detail-modal-desc/poi-detail-modal-desc';
 import { InfoCatProvider } from '../providers/sgtur/infoCat';
+
 
 
 @NgModule({
@@ -77,6 +79,7 @@ import { InfoCatProvider } from '../providers/sgtur/infoCat';
         Geolocation,
         Diagnostic,
         Device,
+        LaunchNavigator,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
         CoreProvider,
         AmauttaProvider,
