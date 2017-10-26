@@ -14,7 +14,7 @@ import { SgturHospedajesProvider } from '../../providers/sgtur/hospedaje';
 export class PoiDetailServiciosPage {
     data: any;
     hospedajes: any;
-    search_hospedaje: any
+    search_hospedaje: any;
     categoria_hospedajes: any;
     status_filter: any;
     loader: boolean;
