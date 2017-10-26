@@ -50,27 +50,29 @@ export class MapaPage {
 		});
 
 		// INFOWINDOW BUTTON EVENTS
-		$(document).off('click.poi-detail-event', '.btn-detalle');
-        $(document).off('click.poi-ruta-event', '.btn-ruta');
-        $(document).off('click.poi-navegador-event', '.btn-navegador');
+		$(document).off('click.detail-event', '.btn-detalle');
+        $(document).off('click.ruta-event', '.btn-ruta');
+        $(document).off('click.navegador-event', '.btn-navegador');
 
-		$(document).on({'click.poi-detail-event': () => {
-				this.goToPOIDetail($('.infowindow-popup').data('properties'));//[data-layer="poi"]
+        // DETAIL BUTTON EVENT 
+		$(document).on({'click.detail-event': () => {
+				this.goToDetail($('.infowindow-popup').data('layer'), $('.infowindow-popup').data('properties'));
             }
         }, '.btn-detalle');
 
-        $(document).on({'click.poi-ruta-event': () => {
+		// RUTA BUTTON EVENT
+        $(document).on({'click.ruta-event': () => {
                 this.map.prepareRoute($('.infowindow-popup').data('layer'), $('.infowindow-popup').data('point'));
             }
         }, '.btn-ruta');
 
-        $(document).on({'click.poi-navegador-event': () => {
+        // NAVEGADOR BUTTON EVENT
+        $(document).on({'click.navegador-event': () => {
             //this.coreService.showAlert('', this.map.myPositionMarker.position);
             //this.coreService.showAlert('', $('.reclamo-popup').data('ruta'));
                 this.coreService.openLink($('.infowindow-popup').data('point'), 'geo');
             }
         }, '.btn-navegador');
-
     }
 
     ionViewDidLoad() {
@@ -92,12 +94,19 @@ export class MapaPage {
         this.menuCtrl.swipeEnable(true);
     }
 
-    goToPOIDetail(data?: any) {
-        if(data){
-            //this.navCtrl.push(PoiDetailPage, {poi: data});
-            console.log(data);
+    goToDetail(layer: string, data?: any) {
+        if(layer && data){
+        	if (layer == 'poi'){
+        		this.navCtrl.push(PoiDetailPage, {poi: data});
+        	}
+        	if (layer == 'hospedaje'){
+
+        	}
+        	if (layer == 'comercio'){
+
+        	}
         }else{
-            
+            console.log('No se probeyeron los parametros necesarios');
         }
 	
     }
@@ -123,7 +132,7 @@ export class MapaPage {
 		var iconPOI = 'assets/images/marker.png';
 		var iconHospedaje = 'assets/images/marker2.png';
 		var iconComercio = 'assets/images/marker3.png';
-		var iconCajero = 'assets/images/marker4.png';
+		//var iconCajero = 'assets/images/marker4.png';
 
 		if(this.filters.poi){
 			this.poiService.list(true, latLng.lng(), latLng.lat(), this.radio * 1000).subscribe (
@@ -145,12 +154,12 @@ export class MapaPage {
 		if(this.filters.hospedaje){
 			this.hospedajeService.list(true, latLng.lng(), latLng.lat(), this.radio * 1000).subscribe (
 				data => {
-					this.map.hiddenLayer('hospedajes');
-					this.map.createLayer('hospedajes');
-					this.map.addGeoJson('hospedajes', data['results']);
-					this.map.setStyles('hospedajes', {icon:iconHospedaje});
-					this.map.setBounds('hospedajes');
-        			this.map.setMarkerOnClick('hospedajes');
+					this.map.hiddenLayer('hospedaje');
+					this.map.createLayer('hospedaje');
+					this.map.addGeoJson('hospedaje', data['results']);
+					this.map.setStyles('hospedaje', {icon:iconHospedaje});
+					this.map.setBounds('hospedaje');
+        			this.map.setMarkerOnClick('hospedaje');
 					this.coreService.dismissLoading();
 				},
 				error => {
@@ -162,7 +171,7 @@ export class MapaPage {
 		if(this.filters.comercio){
 			this.comercioService.list(true, latLng.lng(), latLng.lat(), this.radio * 1000).subscribe (
 				data => {
-					console.log(data['results']);
+					//console.log(data['results']);
 					this.map.hiddenLayer('comercio');
 					this.map.createLayer('comercio');
 					this.map.addGeoJson('comercio', data['results']);
@@ -218,43 +227,43 @@ export class MapaPage {
 	    alert.setTitle('Qué deseas buscar?');
 
 	    alert.addInput({
-	      type: 'checkbox',
-	      label: 'Puntos de Interes',
-	      value: 'poi',
-	      checked: this.filters.poi?true:false
+			type: 'checkbox',
+			label: 'Puntos de Interes',
+			value: 'poi',
+			checked: this.filters.poi?true:false
 	    });
 
 	    alert.addInput({
-	      type: 'checkbox',
-	      label: 'Hospedajes',
-	      value: 'hospedaje',
-	      checked: this.filters.hospedaje?true:false
+			type: 'checkbox',
+			label: 'Hospedajes',
+			value: 'hospedaje',
+			checked: this.filters.hospedaje?true:false
 	    });
 
 	    alert.addInput({
-	      type: 'checkbox',
-	      label: 'Comercios',
-	      value: 'comercio',
-	      checked: this.filters.comercio?true:false
+			type: 'checkbox',
+			label: 'Comercios',
+			value: 'comercio',
+			checked: this.filters.comercio?true:false
 	    });
 
-	    alert.addInput({
-	      type: 'checkbox',
-	      label: 'Cajeros',
-	      value: 'cajero',
-	      checked: this.filters.cajero?true:false
-	    });
+	    /*alert.addInput({
+			type: 'checkbox',
+			label: 'Cajeros',
+			value: 'cajero',
+			checked: this.filters.cajero?true:false
+	    });*/
 
 	    alert.addButton('Cancelar');
 	    alert.addButton({
-	      text: 'Aceptar',
-	      handler: data => {
-	        this.testCheckboxOpen = false;
-	        this.filters.poi = data.includes("poi")?true:false;
-	        this.filters.hospedaje = data.includes("hospedaje")?true:false;
-	        this.filters.comercio = data.includes("comercio")?true:false;
-	        this.filters.cajero = data.includes("cajero")?true:false;
-	      }
+	     	text: 'Aceptar',
+			handler: data => {
+			this.testCheckboxOpen = false;
+			this.filters.poi = data.includes("poi")?true:false;
+			this.filters.hospedaje = data.includes("hospedaje")?true:false;
+			this.filters.comercio = data.includes("comercio")?true:false;
+			this.filters.cajero = data.includes("cajero")?true:false;
+			}
 	    });
 	    alert.present().then(() => {
 	      this.testCheckboxOpen = true;

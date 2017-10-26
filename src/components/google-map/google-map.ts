@@ -63,7 +63,6 @@ export class GoogleMapComponent {
     }
 
     initMap() {
-        console.log(this.zoom);
         let mapEle = this.mapElement.nativeElement;
         let latLng = new google.maps.LatLng(this.latitude, this.longitude);
 

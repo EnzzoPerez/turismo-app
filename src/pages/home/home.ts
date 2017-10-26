@@ -40,7 +40,6 @@ export class HomePage {
 
     ionViewDidEnter() {
         if(this.slides) {
-            console.log('autoplay');
             this.slides.startAutoplay();
         }
     }

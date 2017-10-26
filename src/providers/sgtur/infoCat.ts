@@ -10,6 +10,13 @@ export class InfoCatProvider extends SgturProvider{
         super(http);
     }
 
+    //GET DEPTO FROM JSON IN FOLDER DATA (HARDCODE)
+    getDeptos(){
+		return this.http.get('assets/data/deptos.json')
+			.map(res => res.json())
+	}
+
+    //GET DEPTOS FROM API SGTUR
     getDeptosList(){
         return this.http.get(this.api_url + 'departamento').map(response => response.json())
     }

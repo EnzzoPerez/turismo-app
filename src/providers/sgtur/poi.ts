@@ -33,7 +33,7 @@ export class SgturPOIProvider extends SgturProvider {
         }
 
         if (lon && lat){
-            console.log('lat & lon')
+            //console.log('lat & lon')
             queryparams += '&dist=' + dist + '&point=' + lon + ',' + lat;
         }
 
