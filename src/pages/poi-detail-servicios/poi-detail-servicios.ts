@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import * as _ from "lodash";
 
 import { SgturHospedajesProvider } from '../../providers/sgtur/hospedaje';
 
 
-declare var _: any;
 
 @IonicPage()
 @Component({
@@ -14,7 +14,7 @@ declare var _: any;
 export class PoiDetailServiciosPage {
     data: any;
     hospedajes: any;
-    search_hospedaje: any
+    search_hospedaje: any;
     categoria_hospedajes: any;
     status_filter: any;
     loader: boolean;
