@@ -14,7 +14,7 @@ import { HospedajeDetailModalTarifasPage } from '../hospedaje-detail-modal-tarif
 export class HospedajeDetailPage {
 
 	hospedaje: any;
-	coord: any;
+	coord: any[] = [0, 1];
 
  	constructor(
   		public navCtrl: NavController, 
@@ -23,12 +23,17 @@ export class HospedajeDetailPage {
   		private modalCtrl: ModalController
   	){
  		this.hospedaje = this.navParams.get('hospedaje');
- 		this.coord = this.navParams.get('coord');
- 		console.log(this.hospedaje);
+ 		if (this.navParams.get('coord') && this.navParams.get('coord').coordinates) {
+ 			this.coord[0] = this.navParams.get('coord').coordinates[1]
+ 			this.coord[1] = this.navParams.get('coord').coordinates[0]
+ 		}else{
+ 			this.coord = this.navParams.get('coord');
+ 		}
+ 		//console.log(this.coord);
   	}
 
   	ionViewDidLoad() {
-    	console.log('ionViewDidLoad HospedajeDetailPage');
+    	//console.log('ionViewDidLoad HospedajeDetailPage');
   	}
 
   	openTel(text: string){
@@ -40,7 +45,7 @@ export class HospedajeDetailPage {
     }
 
     openNavigation() {
-    	this.coreService.openLink(this.coord, 'geo');
+        this.coreService.openLink(this.coord, 'geo');
     }
 
     openModal(type: string, data: any) {

@@ -1,8 +1,8 @@
 page-about {
     #colmenacoop {
 		position: absolute;
-		right: 0px;
-		bottom: 0px;
+		right: 4px;
+    	padding: 5px;
 	}
 	.llamar-btn ion-icon, .mail-btn ion-icon, .facebook-btn ion-icon{
 		padding: 0;
@@ -10,17 +10,17 @@ page-about {
 	}
 	.llamar-btn {
 		margin-bottom: 15px;
-		background: rgba(20, 162, 38, 0.98);
+		background: rgba(27, 142, 194, 0.96);
 		padding: 10px !important;
 	}
 	.mail-btn {
 		margin-bottom: 15px;
-		background: rgba(245, 61, 61, 0.83);
+		background: rgba(27, 142, 194, 0.96);
 		padding: 10px !important;
 	}
 	.facebook-btn {
 		margin-bottom: 15px;
-		background: rgba(8, 102, 144, 0.9632);
+		background: rgba(27, 142, 194, 0.96);
 		padding: 10px !important;
 	}
 }

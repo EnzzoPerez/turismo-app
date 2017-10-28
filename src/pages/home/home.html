@@ -7,8 +7,8 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
-        <ion-card>
+<ion-content class="card-background-page">
+        <!--ion-card>
             <ion-slides autoplay="3000" loop="true" speed="500" (ionSlideDidChange)="slideChanged()">
                 <ion-slide>
                     <img src="assets/images/card-1.jpg">
@@ -28,12 +28,20 @@
             <ion-card *ngFor="let item of items" (click)="itemSelected(item)" [id]="item.nombre">
                 <div class="card-color" [style.background]='item.color'></div>
                 <div class="card-title">
-                    <!--img [src]="item.icon"-->
+                    <!--img [src]="item.icon">
                     <span>
                         {{ item.titulo|uppercase }}
                     </span>
                 </div>
                 <div class="card-subtitle">{{ item.subtitulo }}</div>
             </ion-card>
-        </div>
+        </div-->
+        <ion-card *ngFor="let item of items" (click)="itemSelected(item)" [id]="item.nombre">
+            <img [src]="item.image" />
+            <div class="card-content">
+                <div class="card-title">{{ item.titulo | uppercase }}</div>
+                <div class="card-subtitle">{{ item.subtitulo }}</div>
+            </div>
+        </ion-card>
+
 </ion-content>

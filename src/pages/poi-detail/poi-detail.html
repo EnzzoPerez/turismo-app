@@ -85,6 +85,14 @@
                     </ion-col>
                 </ion-row>
 
+                <ion-row id="centrado" *ngIf="coord">
+                    <ion-col>
+                        <button col-12 ion-button color="barra" (click)="openNavigation()" round>
+                            Como llegar
+                        </button>
+                    </ion-col>
+                </ion-row>
+
             </ion-grid>
 
         </ion-card-content>

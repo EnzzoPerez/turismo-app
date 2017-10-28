@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController, AlertController } 
 import * as _ from "lodash";
 
 import { SgturHospedajesProvider } from '../../providers/sgtur/hospedaje';
-
+import { HospedajeDetailPage } from './../hospedaje-detail/hospedaje-detail';
 
 
 @IonicPage()
@@ -38,6 +38,7 @@ export class PoiDetailServiciosPage {
             data => {
                 this.hospedajes = data.results;
                 this.search_hospedaje = this.hospedajes;
+                console.log(this.hospedajes);
                 this.loader = false;
 
                 // Group by hospedaje.clase.nombre
@@ -61,7 +62,7 @@ export class PoiDetailServiciosPage {
     }
 
     goToListHospedajeCategoria(hospedaje: any){
-        console.log(hospedaje);
+        this.navCtrl.push(HospedajeDetailPage, { hospedaje: hospedaje, coord: hospedaje.ubicacion });
     }
 
     showFilterbox(){

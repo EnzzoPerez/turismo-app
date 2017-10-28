@@ -81,13 +81,13 @@ export class MapaPage {
         	this.map.zoom = 14;
         	this.map.initMap()
             //this.map.resizeMap();
-            if (this.platform.is('cordova')) {
+            /*if (this.platform.is('cordova')) {
             	this.map.myLocationWatch();
             }else{
             	this.map.createPositionMarker(false);
-            }
+            }*/
             // COMENTAR PARA PRODUCCION
-            //this.map.createPositionMarker(false);
+            this.map.createPositionMarker(false);
         });
     }
 
@@ -98,7 +98,7 @@ export class MapaPage {
     goToDetail(layer: string, data?: any, coord?: any) {
         if(layer && data){
         	if (layer == 'poi'){
-        		this.navCtrl.push(PoiDetailPage, {poi: data});
+        		this.navCtrl.push(PoiDetailPage, {poi: data, coord: coord});
         	}
         	if (layer == 'hospedaje'){
         		this.navCtrl.push(HospedajeDetailPage, {hospedaje: data, coord: coord});
@@ -130,9 +130,9 @@ export class MapaPage {
 
 	searchByFilter(latLng: any) {
 
-		var iconPOI = 'assets/images/marker.png';
-		var iconHospedaje = 'assets/images/marker2.png';
-		var iconComercio = 'assets/images/marker3.png';
+		var iconPOI = 'assets/images/marker-poi.png';
+		var iconHospedaje = 'assets/images/marker-hospedaje.png';
+		var iconComercio = 'assets/images/marker-comercio.png';
 		//var iconCajero = 'assets/images/marker4.png';
 
 		if(this.filters.poi){

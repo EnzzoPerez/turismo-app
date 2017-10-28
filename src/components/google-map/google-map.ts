@@ -354,7 +354,8 @@ export class GoogleMapComponent {
             this.diagnostic.getLocationMode().then(mode => {
                 // Si el GPS no esta en modo de alta precisión
                 if(mode != this.diagnostic.locationMode.HIGH_ACCURACY){
-                    this.presentConfirmGPS('Activar GPS', 'Por favor active su GPS en modo alta precisión.');
+                    this.coreService.presentToast('Por favor active su GPS en modo alta precisión.', 5000, 'bottom', '');
+                    //this.presentConfirmGPS('Activar GPS', 'Por favor active su GPS en modo alta precisión.');
                 }else{
                     // Obtenemos la ubicación actual
                     this.geolocation.getCurrentPosition({enableHighAccuracy: true}).then((data) => {

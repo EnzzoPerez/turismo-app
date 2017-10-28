@@ -14,6 +14,7 @@ import { PoiDetailServiciosPage } from './../poi-detail-servicios/poi-detail-ser
 export class PoiDetailPage {
 
     POI: any;
+    coord: any[] = [0, 1];
 
     constructor(
         public navCtrl: NavController, 
@@ -22,6 +23,13 @@ export class PoiDetailPage {
         private coreService: CoreProvider
     ) {
         this.POI = this.navParams.get('poi');
+        if (this.POI.ubicacion && this.POI.ubicacion.coordinates) {
+            this.coord[0] = this.POI.ubicacion.coordinates[1]
+            this.coord[1] = this.POI.ubicacion.coordinates[0]
+        }
+        else if (this.navParams.get('coord')){
+            this.coord = this.navParams.get('coord');
+        }
         //console.log(this.POI);
     }
 
@@ -42,14 +50,16 @@ export class PoiDetailPage {
         this.navCtrl.push(PoiDetailServiciosPage, {'data': data})
     }
 
-
-
     openTel(text: string){
         let newText = text.replace(';','');
         newText = newText.replace('(','');
         newText = newText.replace(')','');
         newText = newText.replace(' ','');        
         this.coreService.openLink(newText, 'tel');
+    }
+
+    openNavigation() {
+        this.coreService.openLink(this.coord, 'geo');
     }
 
 }

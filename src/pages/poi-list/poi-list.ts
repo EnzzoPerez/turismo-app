@@ -25,7 +25,7 @@ export class PoiListPage {
         this.sgturPOIProvider.getPOIByCategory(this.navParams.get('nombre')).subscribe(
             data => {
                 this.POIList = data['results'];
-                console.log(data['results']);
+                //console.log(data['results']);
                 this.loader = false;
             },
             error => {
@@ -35,8 +35,8 @@ export class PoiListPage {
         );
     }
 
-    goToPOIDetail(poi: any){
-        this.navCtrl.push(PoiDetailPage, {poi: poi})
+    goToPOIDetail(poi: any, coord?: any){
+        this.navCtrl.push(PoiDetailPage, {poi: poi, coord: coord})
     }
 
 }
