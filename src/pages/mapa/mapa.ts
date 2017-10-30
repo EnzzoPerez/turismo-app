@@ -81,11 +81,7 @@ export class MapaPage {
         	this.map.zoom = 14;
         	this.map.initMap()
             //this.map.resizeMap();
-            /*if (this.platform.is('cordova')) {
-            	this.map.myLocationWatch();
-            }else{
-            	this.map.createPositionMarker(false);
-            }*/
+            //this.map.myLocationWatch();
             // COMENTAR PARA PRODUCCION
             this.map.createPositionMarker(false);
         });

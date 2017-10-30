@@ -7,14 +7,11 @@ import { GoogleMapComponent } from './google-map/google-map';
 
 @NgModule({
 	declarations: [
-		GoogleMapComponent
 	],
 	imports: [
-		CommonModule, 
-		IonicModule.forRoot(GoogleMapComponent)
+		CommonModule
 	],
 	exports: [
-		GoogleMapComponent
 	]
 })
 export class ComponentsModule {}
