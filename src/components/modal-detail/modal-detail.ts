@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
+
 @IonicPage()
 @Component({
-    selector: 'page-poi-detail-modal-desc',
-    templateUrl: 'poi-detail-modal-desc.html',
+    selector: 'modal-detail',
+    templateUrl: 'modal-detail.html',
 })
-export class PoiDetailModalDescPage {
+export class ModalDetailPage {
 
     detalle: string;
     titulo: string;

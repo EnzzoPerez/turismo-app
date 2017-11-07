@@ -13,7 +13,7 @@
 	</div>
     <ion-list>
     	<ion-item *ngFor="let poi of POIList" (click)="goToPOIDetail(poi)">
-    		<ion-thumbnail item-start *ngIf="poi.imagenes; else noImage">
+    		<ion-thumbnail item-start *ngIf="poi.imagenes.lenght > 0; else noImage">
 		    	<img [src]="'https://sgtur.catamarca.gob.ar' + poi.imagenes[0]['image']['thumbnail']">
 		    </ion-thumbnail>
 		    <ng-template #noImage>
@@ -21,7 +21,7 @@
 			     	<img src="assets/images/turismo-catamarca.jpg">
 			    </ion-thumbnail>
 		    </ng-template>
-		    <h2>{{ poi.titulo }}</h2>
+		    {{ poi.titulo }}
 		    <p *ngIf="poi.localidad">	
 		    	<label *ngIf="poi.localidad.nombre">
 		    		{{ poi.localidad.nombre}} - 

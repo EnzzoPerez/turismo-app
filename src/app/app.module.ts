@@ -8,12 +8,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Device } from '@ionic-native/device';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { Geolocation } from '@ionic-native/geolocation';
-import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { PoiListPage } from '../pages/poi-list/poi-list';
-import { PoiListPageModule } from '../pages/poi-list/poi-list.module';
 import { CoreProvider } from '../providers/core/core';
 import { AmauttaProvider } from '../providers/amautta/amautta';
 import { SgturProvider } from '../providers/sgtur/sgtur';
@@ -21,8 +19,6 @@ import { AmauttaComerciosProvider } from '../providers/amautta/comercios';
 import { SgturHospedajesProvider } from '../providers/sgtur/hospedaje';
 import { SgturPOIProvider } from '../providers/sgtur/poi';
 import { CategoriesPageModule } from '../pages/categories/categories.module';
-import { DeptoDetailPage } from '../pages/depto-detail/depto-detail';
-import { DeptoDetailPageModule } from '../pages/depto-detail/depto-detail.module';
 import { CategoriesPage } from '../pages/categories/categories';
 import { AboutPageModule } from '../pages/about/about.module';
 import { AboutPage } from '../pages/about/about';
@@ -32,12 +28,9 @@ import { BusquedaPageModule } from '../pages/busqueda/busqueda.module';
 import { BusquedaPage } from '../pages/busqueda/busqueda';
 import { SobreCatamarcaPageModule } from '../pages/sobre-catamarca/sobre-catamarca.module';
 import { SobreCatamarcaPage } from '../pages/sobre-catamarca/sobre-catamarca';
-import { PoiDetailPageModule } from './../pages/poi-detail/poi-detail.module';
-import { PoiDetailPage } from './../pages/poi-detail/poi-detail';
-import { PoiDetailModalDescPageModule } from './../pages/poi-detail-modal-desc/poi-detail-modal-desc.module';
-import { PoiDetailModalDescPage } from '../pages/poi-detail-modal-desc/poi-detail-modal-desc';
+import { PoiModule } from './../pages/poi/poi.module';
 import { InfoCatProvider } from '../providers/sgtur/infoCat';
-import { HospedajeDetailPageModule } from '../pages/hospedaje-detail/hospedaje-detail.module'
+import { HospedajePageModule } from '../pages/hospedaje/hospedaje.module'
 
 
 
@@ -51,29 +44,17 @@ import { HospedajeDetailPageModule } from '../pages/hospedaje-detail/hospedaje-d
         IonicModule.forRoot(MyApp),
         HttpModule,
         AboutPageModule,
-        PoiListPageModule,
-        PoiDetailPageModule,
         CategoriesPageModule,
         MapaPageModule,
         BusquedaPageModule,
         SobreCatamarcaPageModule,
-        PoiDetailModalDescPageModule,
-        DeptoDetailPageModule,
-        HospedajeDetailPageModule
+        HospedajePageModule,
+        PoiModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        HomePage,
-        PoiListPage,
-        PoiDetailPage,
-        CategoriesPage,
-        AboutPage,
-        MapaPage,
-        BusquedaPage,
-        SobreCatamarcaPage,
-        PoiDetailModalDescPage,
-        DeptoDetailPage
+        HomePage
     ],
     providers: [
         StatusBar,

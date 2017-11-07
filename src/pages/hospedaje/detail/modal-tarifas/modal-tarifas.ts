@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
- * Generated class for the HospedajeDetailModalServiciosPage page.
+ * Generated class for the HospedajeDetailModalTarifasPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,27 +10,27 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 
 @IonicPage()
 @Component({
-  selector: 'page-hospedaje-detail-modal-servicios',
-  templateUrl: 'hospedaje-detail-modal-servicios.html',
+ 	selector: 'modal-tarifas',
+ 	templateUrl: 'modal-tarifas.html',
 })
-export class HospedajeDetailModalServiciosPage {
+export class HospedajeModalTarifasPage {
 
-	servicios: any;
+	tarifa: any;
 
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
 		private viewCtrl: ViewController
 	) {
-		this.servicios = this.navParams.get('servicios');
+		this.tarifa = this.navParams.get('tarifas');
 	}
 
 	ionViewDidLoad() {
-	
+
 	}
 
-	closeModal(){
+	closeModal() {
         this.viewCtrl.dismiss();
     }
-    
+
 }

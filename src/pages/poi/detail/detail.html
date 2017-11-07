@@ -7,7 +7,7 @@
 
 <ion-content>
     <ion-card>
-        <div *ngIf="POI.imagenes; else noImage">
+        <div *ngIf="POI.imagenes.lenght > 0; else noImage">
             <ion-slides pager>
                 <ion-slide *ngFor="let image of POI.imagenes">
                     <img [src]="'https://sgtur.catamarca.gob.ar' + image.image.medium_square_crop">

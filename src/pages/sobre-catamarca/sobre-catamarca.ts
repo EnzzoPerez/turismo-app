@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DeptoDetailPage } from './../depto-detail/depto-detail'
+import { DeptoDetailPage } from './depto-detail/depto-detail'
 import { InfoCatProvider } from './../../providers/sgtur/infoCat';
+
 
 @IonicPage()
 @Component({
@@ -23,11 +24,12 @@ export class SobreCatamarcaPage {
     }
 	
     listDeptos(){
-		this.infoCat.getDeptos().subscribe( data => {
-			this.deptos = data['departamento'];
-			this.deptosFilter = data['departamento'];
-		}, 
-		error => console.log(error));
+		this.infoCat.getDeptos().subscribe( 
+			data => {
+				this.deptos = data['departamento'];
+				this.deptosFilter = data['departamento'];
+			}, 
+			error => console.log(error));
 	}
 
 	getDeptoDetail(depto: any){

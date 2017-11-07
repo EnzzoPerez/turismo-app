@@ -6,8 +6,8 @@ import { CoreProvider } from './../../providers/core/core';
 import { SgturPOIProvider } from './../../providers/sgtur/poi'
 import { SgturHospedajesProvider } from './../../providers/sgtur/hospedaje'
 import { AmauttaComerciosProvider } from './../../providers/amautta/comercios'
-import { PoiDetailPage } from './../poi-detail/poi-detail';
-import { HospedajeDetailPage } from './../hospedaje-detail/hospedaje-detail';
+import { POIDetailPage } from './../poi/detail/detail';
+import { HospedajeDetailPage } from './../hospedaje/detail/detail';
 
 import * as $ from 'jquery'
 
@@ -94,7 +94,7 @@ export class MapaPage {
     goToDetail(layer: string, data?: any, coord?: any) {
         if(layer && data){
         	if (layer == 'poi'){
-        		this.navCtrl.push(PoiDetailPage, {poi: data, coord: coord});
+        		this.navCtrl.push(POIDetailPage, {poi: data, coord: coord});
         	}
         	if (layer == 'hospedaje'){
         		this.navCtrl.push(HospedajeDetailPage, {hospedaje: data, coord: coord});

@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
-import { CoreProvider } from './../../providers/core/core'
-import { PoiDetailModalDescPage } from './../poi-detail-modal-desc/poi-detail-modal-desc';
-import { PoiDetailServiciosPage } from './../poi-detail-servicios/poi-detail-servicios';
+import { CoreProvider } from '../../../providers/core/core';
+import { ModalDetailPage } from './../../../components/modal-detail/modal-detail';
+import { ModalServiciosPage } from './../../../components/modal-servicios/modal-servicios';
 
 
 @IonicPage()
 @Component({
-    selector: 'page-poi-detail',
-    templateUrl: 'poi-detail.html',
+    selector: 'poi-detail',
+    templateUrl: 'detail.html',
 })
-export class PoiDetailPage {
+export class POIDetailPage {
 
     POI: any;
     coord: any[] = [0, 1];
@@ -40,14 +40,14 @@ export class PoiDetailPage {
     openModal(type: string, data: any) {
         let modal = null;
         if (type == "detalle"){
-            modal = this.modalCtrl.create(PoiDetailModalDescPage, { titulo: data.titulo, detalle: data.descripcion });
+            modal = this.modalCtrl.create(ModalDetailPage, { titulo: data.titulo, detalle: data.descripcion });
         }
         
         modal.present();
     }
 
     goToListServices(data: any){
-        this.navCtrl.push(PoiDetailServiciosPage, {'data': data})
+        this.navCtrl.push(ModalServiciosPage, {'data': data, 'coord': this.coord})
     }
 
     openTel(text: string){

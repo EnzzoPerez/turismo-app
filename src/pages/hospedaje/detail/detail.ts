@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
-import { CoreProvider } from './../../providers/core/core'
-import { HospedajeDetailModalServiciosPage } from './../hospedaje-detail-modal-servicios/hospedaje-detail-modal-servicios';
-import { HospedajeDetailModalTarifasPage } from '../hospedaje-detail-modal-tarifas/hospedaje-detail-modal-tarifas';
+import { CoreProvider } from './../../../providers/core/core'
+import { HospedajeModalServiciosPage } from './modal-servicios/modal-servicios';
+import { HospedajeModalTarifasPage } from './modal-tarifas/modal-tarifas';
 
 
-@IonicPage()
+@IonicPage({ segment: "hospedaje-detail" })
 @Component({
- 	selector: 'page-hospedaje-detail',
- 	templateUrl: 'hospedaje-detail.html',
+    selector: 'hospedaje-detail',
+    templateUrl: 'detail.html',
 })
 export class HospedajeDetailPage {
 
@@ -51,9 +51,9 @@ export class HospedajeDetailPage {
     openModal(type: string, data: any) {
         let modal = null;
         if (type == "tarifa"){
-            modal = this.modalCtrl.create(HospedajeDetailModalTarifasPage, { tarifas: data });
+            modal = this.modalCtrl.create(HospedajeModalTarifasPage, { tarifas: data });
         }else if (type == "servicio"){
-            modal = this.modalCtrl.create(HospedajeDetailModalServiciosPage, { servicios: data });
+            modal = this.modalCtrl.create(HospedajeModalServiciosPage, { servicios: data });
         }
         modal.present();
     }

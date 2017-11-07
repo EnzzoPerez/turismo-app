@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
 import * as _ from "lodash";
 
-import { SgturHospedajesProvider } from '../../providers/sgtur/hospedaje';
-import { HospedajeDetailPage } from './../hospedaje-detail/hospedaje-detail';
+import { SgturHospedajesProvider } from './../../providers/sgtur/hospedaje';
+import { HospedajeDetailPage } from './../../pages/hospedaje/detail/detail';
 
 
-@IonicPage()
 @Component({
-    selector: 'page-poi-detail-servicios',
-    templateUrl: 'poi-detail-servicios.html',
+    selector: 'modal-servicios',
+    templateUrl: 'modal-servicios.html',
 })
-export class PoiDetailServiciosPage {
+export class ModalServiciosPage {
     data: any;
     hospedajes: any;
     search_hospedaje: any;
     categoria_hospedajes: any;
     status_filter: any;
     loader: boolean;
+    coord: any;
 
     constructor(
         public navCtrl: NavController, 
@@ -28,13 +28,13 @@ export class PoiDetailServiciosPage {
     ) {
         console.log(this.navParams.get('data'));
         this.data = this.navParams.get('data');
+        this.coord = this.navParams.get('coord');
         this.loader = true;
 
     }
 
     ionViewDidLoad() {
-        let coord = this.data.ubicacion.coordinates;
-        this.hospedajeProvider.list(false, coord[0], coord[1]).subscribe(
+        this.hospedajeProvider.list(false, this.coord[1], this.coord[0]).subscribe(
             data => {
                 this.hospedajes = data.results;
                 this.search_hospedaje = this.hospedajes;

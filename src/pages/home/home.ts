@@ -4,7 +4,6 @@ import { Slides } from 'ionic-angular';
 
 import { CategoriesPage } from '../categories/categories';
 import { MapaPage } from '../mapa/mapa';
-import { BusquedaPage } from '../busqueda/busqueda';
 import { SobreCatamarcaPage } from '../sobre-catamarca/sobre-catamarca';
 import { CoreProvider } from './../../providers/core/core';
 

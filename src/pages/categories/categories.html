@@ -10,6 +10,7 @@
 		<img src="assets/images/loader.gif">
 	</div>
     <ion-list id="categories-list">
+
     	<ion-item *ngFor="let category of categories" (click)="categorySelected(category)">
 		    <ion-thumbnail item-start>
 		      <img src="assets/images/turismo-catamarca.jpg">
@@ -18,6 +19,13 @@
 		    <p>POI encontrados: {{ category.poi_count }}</p>
 		    <ion-icon name="arrow-forward" item-end></ion-icon>
 	  	</ion-item>
+
+	  	<ion-item *ngIf="noData" text-center>
+	  		<b>No se encontraron registros</b>
+	  	</ion-item>
+	  	<div padding>
+	  		<button *ngIf="reloadBtn" ion-button block (click)="loadPOI()">Actualizar</button>
+	  	</div>
         <!--button ion-item *ngFor="let category of categories" (click)="categorySelected(category)">
             {{ category.nombre }}
             <ion-badge item-end color="blue">{{ category.poi_count }}</ion-badge>

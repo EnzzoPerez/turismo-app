@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { SgturPOIProvider } from '../../providers/sgtur/poi';
-import { PoiDetailPage } from './../poi-detail/poi-detail';
+import { SgturPOIProvider } from '../../../providers/sgtur/poi';
+import { POIDetailPage } from './../detail/detail';
 
 
 @IonicPage()
 @Component({
-    selector: 'page-poi-list',
-    templateUrl: 'poi-list.html',
+    selector: 'poi-list',
+    templateUrl: 'list.html',
 })
-export class PoiListPage {
+export class POIListPage {
 
     categoryName: string;
     POIList: any;
@@ -36,7 +36,7 @@ export class PoiListPage {
     }
 
     goToPOIDetail(poi: any, coord?: any){
-        this.navCtrl.push(PoiDetailPage, {poi: poi, coord: coord})
+        this.navCtrl.push(POIDetailPage, {poi: poi, coord: coord})
     }
 
 }
